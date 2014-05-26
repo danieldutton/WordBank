@@ -4,15 +4,15 @@ namespace WordBank.UnitTests
 {
     public static class Mother
     {
-        public static List<string> ExpectedSpellingsOrder()
+        public static List<string> ExpectedWordsOrder()
         {
-            var spellingsList = new List<string>
+            var WordsList = new List<string>
             {
-                "Spelling1", "Spelling2", "Spelling3", "Spelling4", "Spelling5",
-                "Spelling6", "Spelling7", "Spelling8", "Spelling9", "Spelling10",
+                "Word1", "Word2", "Word3", "Word4", "Word5",
+                "Word6", "Word7", "Word8", "Word9", "Word10",
             };
 
-            return spellingsList;
+            return WordsList;
         } 
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WordBank.QuestionBank.Properties {
+namespace WordBank.Repository.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace WordBank.QuestionBank.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WordBank.QuestionBank.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WordBank.Repository.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,19 @@ namespace WordBank.QuestionBank.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;words&gt;
+        ///  &lt;word id =&quot;1&quot;&gt;Word1&lt;/word&gt;
+        ///  &lt;word id =&quot;2&quot;&gt;Word2&lt;/word&gt;
+        ///  &lt;word id =&quot;3&quot;&gt;Word3&lt;/word&gt;
+        ///  &lt;word id =&quot;4&quot;&gt;Word4&lt;/word&gt;
+        ///  &lt;word id =&quot;5&quot;&gt;Word5&lt;/word&gt;
+        ///  &lt;word id =&quot;6&quot;&gt;Word6&lt;/word&gt;
+        ///  &lt;word id =&quot;7&quot;&gt;Word7&lt;/word&gt;
+        ///  &lt;word id =&quot;8&quot;&gt;Word8&lt;/word&gt;
+        ///  &lt;word id =&quot;9&quot;&gt;Word9&lt;/word&gt;
+        ///  &lt;word id =&quot;10&quot;&gt;Word10&lt;/word&gt;
+        ///&lt;/words&gt;.
         /// </summary>
         internal static string words {
             get {

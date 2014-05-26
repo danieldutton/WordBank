@@ -28,47 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._btnExit = new System.Windows.Forms.Button();
-            this._btnStart = new System.Windows.Forms.Button();
+            this._lblAnswerPrompt = new System.Windows.Forms.Label();
+            this._comboBoxQuestionCount = new System.Windows.Forms.ComboBox();
+            this._lblQuestions = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // _btnExit
+            // _lblAnswerPrompt
             // 
-            this._btnExit.Location = new System.Drawing.Point(12, 129);
-            this._btnExit.Name = "_btnExit";
-            this._btnExit.Size = new System.Drawing.Size(75, 23);
-            this._btnExit.TabIndex = 0;
-            this._btnExit.Text = "Exit";
-            this._btnExit.UseVisualStyleBackColor = true;
-            this._btnExit.Click += new System.EventHandler(this.ExitApplication_Click);
+            this._lblAnswerPrompt.AutoSize = true;
+            this._lblAnswerPrompt.Location = new System.Drawing.Point(12, 16);
+            this._lblAnswerPrompt.Name = "_lblAnswerPrompt";
+            this._lblAnswerPrompt.Size = new System.Drawing.Size(85, 13);
+            this._lblAnswerPrompt.TabIndex = 0;
+            this._lblAnswerPrompt.Text = "I want to answer";
             // 
-            // _btnStart
+            // _comboBoxQuestionCount
             // 
-            this._btnStart.Location = new System.Drawing.Point(197, 129);
-            this._btnStart.Name = "_btnStart";
-            this._btnStart.Size = new System.Drawing.Size(75, 23);
-            this._btnStart.TabIndex = 1;
-            this._btnStart.Text = "Start";
-            this._btnStart.UseVisualStyleBackColor = true;
-            this._btnStart.Click += new System.EventHandler(this.SpellingTestStart_Click);
+            this._comboBoxQuestionCount.FormattingEnabled = true;
+            this._comboBoxQuestionCount.Location = new System.Drawing.Point(105, 13);
+            this._comboBoxQuestionCount.Name = "_comboBoxQuestionCount";
+            this._comboBoxQuestionCount.Size = new System.Drawing.Size(35, 21);
+            this._comboBoxQuestionCount.TabIndex = 1;
+            // 
+            // _lblQuestions
+            // 
+            this._lblQuestions.AutoSize = true;
+            this._lblQuestions.Location = new System.Drawing.Point(156, 16);
+            this._lblQuestions.Name = "_lblQuestions";
+            this._lblQuestions.Size = new System.Drawing.Size(54, 13);
+            this._lblQuestions.TabIndex = 2;
+            this._lblQuestions.Text = "Questions";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 156);
-            this.Controls.Add(this._btnStart);
-            this.Controls.Add(this._btnExit);
+            this.ClientSize = new System.Drawing.Size(222, 145);
+            this.Controls.Add(this._lblQuestions);
+            this.Controls.Add(this._comboBoxQuestionCount);
+            this.Controls.Add(this._lblAnswerPrompt);
             this.Name = "Settings";
-            this.Text = "Form1";
+            this.Text = "Settings";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button _btnExit;
-        private System.Windows.Forms.Button _btnStart;
+        private System.Windows.Forms.Label _lblAnswerPrompt;
+        private System.Windows.Forms.ComboBox _comboBoxQuestionCount;
+        private System.Windows.Forms.Label _lblQuestions;
     }
 }
-
