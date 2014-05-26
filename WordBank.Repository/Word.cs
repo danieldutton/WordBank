@@ -1,6 +1,6 @@
 ﻿namespace WordBank.Repository
 {
-    public class Word
+    public sealed class Word
     {
         public int Id { get; set; }
 
@@ -8,9 +8,11 @@
 
         public string Answer { get; set; }
 
-        public bool IsCorrect
+
+        public override string ToString()
         {
-            get { return Text == Answer; }
+            return string.Format("[{0}] Id:{1} Text:{2} Answer:{3}",
+                GetType().Name, Id, Text, Answer);
         }
     }
 }

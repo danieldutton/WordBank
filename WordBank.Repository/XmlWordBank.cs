@@ -9,7 +9,7 @@ namespace WordBank.Repository
 {
     public class XmlWordBank : IWordBank<Word>
     {
-        public event EventHandler<EmptyEventArgs> IsEmpty;
+        public event EventHandler<WordBankEmptyEventArgs> IsEmpty;
 
         public Dictionary<string, string> WordMap { get; set; }
 
@@ -17,10 +17,10 @@ namespace WordBank.Repository
 
         public XmlWordBank()
         {
-            LoadSpellings();
+            LoadWords(Properties.Resources.words);
         }
 
-        public Dictionary<string, string> LoadSpellings()
+        public Dictionary<string, string> LoadWords(string xmlResource)
         {
             XDocument xDoc = XDocument.Parse(Properties.Resources.words);
             
@@ -31,21 +31,22 @@ namespace WordBank.Repository
 
             WordMap = dic;
 
-            var sl = dic.Keys.Select((x, i) => new Word
+            IEnumerable<Word> words = dic.Keys.Select((word, i) => new Word
             {
                 Id = i + 1,
-                Text = x,
+                Text = word,
                 Answer = string.Empty,
             });
 
-            SpellingsQueue = new Queue<Word>(sl);
+            SpellingsQueue = new Queue<Word>(words);
 
             return dic;
         }
 
         public void Update(Word word)
         {
-            WordMap[word.Text] = word.Answer;
+            if(word != null && word.Answer != null)
+                WordMap[word.Text] = word.Answer;
         }
         
         public Word GetWord()
@@ -58,16 +59,15 @@ namespace WordBank.Repository
             }
             catch (InvalidOperationException)
             {
-                OnIsEmpty(new EmptyEventArgs(WordMap));
+                OnIsEmpty(new WordBankEmptyEventArgs(WordMap));
             }
             return word;
         }
 
-        protected virtual void OnIsEmpty(EmptyEventArgs e)
+        protected virtual void OnIsEmpty(WordBankEmptyEventArgs e)
         {
-            EventHandler<EmptyEventArgs> handler = IsEmpty;
+            EventHandler<WordBankEmptyEventArgs> handler = IsEmpty;
             if (handler != null) handler(this, e);
         }
-
     }
 }

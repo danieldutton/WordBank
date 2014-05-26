@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace WordBank.Repository.EventArg
 {
-    public class EmptyEventArgs : EventArgs
+    public class WordBankEmptyEventArgs : EventArgs
     {
         public Dictionary<string, string> WordMap { get; private set; }
 
 
-        public EmptyEventArgs(Dictionary<string, string> wordMap)
+        public WordBankEmptyEventArgs(Dictionary<string, string> wordMap)
         {
             WordMap = wordMap;
         }

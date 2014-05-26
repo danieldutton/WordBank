@@ -25,40 +25,47 @@ namespace WordBank.Presentation
 
             foreach (KeyValuePair<string, string> entry in _result.WordMap)
             {
-                var lblKey = new Label
-                {
-                    Text = entry.Key, 
-                    Location = new Point(0, yPos)
-                };
+                var lblKey = new Label{Text = entry.Key, Location = new Point(5, yPos),};
                 
-                var lblValue = new Label
-                {
-                    Text = entry.Value, 
-                    Location = new Point(170, yPos)
-                };
+                var lblValue = new Label{Text = entry.Value, Location = new Point(170, yPos),};
 
                 Label label;
 
                 if (entry.Key.Equals(entry.Value, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    label = new Label {Text = "Correct", Location = new Point(320, yPos)};
+                    label = new Label{Image = Properties.Resources.greentick, Location = new Point(280, yPos - 5)};
                     score++;
                 }
                 else
                 {
-                    label = new Label { Text = "Wrong", Location = new Point(320, yPos) };    
+                    label = new Label{Image = Properties.Resources.redCrossIcon, Location = new Point(280, yPos - 5)};    
                 }                
 
                 _panelResults.Controls.Add(label);
                 _panelResults.Controls.Add(lblKey);
                 _panelResults.Controls.Add(lblValue);
                 
-
                 yPos += 30;
             }
-            var lblSummary = new Label { Text = "You scored " + score + "out of " + _result.WordMap.Count, Location = new Point(5, yPos) };
+            _lblScore.Text = "You scored " + score + " out of " + _result.TotalWordCount;
 
-            _panelResults.Controls.Add(lblSummary);
         }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
+        }
+
+        private void RestartApplication_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void ExitApplication_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+       
     }
 }

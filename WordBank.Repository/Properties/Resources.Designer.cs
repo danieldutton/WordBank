@@ -63,21 +63,42 @@ namespace WordBank.Repository.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;words&gt;
-        ///  &lt;word id =&quot;1&quot;&gt;Word1&lt;/word&gt;
-        ///  &lt;word id =&quot;2&quot;&gt;Word2&lt;/word&gt;
-        ///  &lt;word id =&quot;3&quot;&gt;Word3&lt;/word&gt;
-        ///  &lt;word id =&quot;4&quot;&gt;Word4&lt;/word&gt;
-        ///  &lt;word id =&quot;5&quot;&gt;Word5&lt;/word&gt;
-        ///  &lt;word id =&quot;6&quot;&gt;Word6&lt;/word&gt;
-        ///  &lt;word id =&quot;7&quot;&gt;Word7&lt;/word&gt;
-        ///  &lt;word id =&quot;8&quot;&gt;Word8&lt;/word&gt;
-        ///  &lt;word id =&quot;9&quot;&gt;Word9&lt;/word&gt;
-        ///  &lt;word id =&quot;10&quot;&gt;Word10&lt;/word&gt;
+        ///  &lt;word&gt;accommodate&lt;/word&gt;
+        ///  &lt;word&gt;accommodation&lt;/word&gt;
+        ///  &lt;word&gt;achieve&lt;/word&gt;
+        ///  &lt;word&gt;aggressive&lt;/word&gt;
+        ///  &lt;word&gt;apparently&lt;/word&gt;
+        ///  &lt;word&gt;appearance&lt;/word&gt;
+        ///  &lt;word&gt;basically&lt;/word&gt;
+        ///  &lt;word&gt;beginning&lt;/word&gt;
+        ///  &lt;word&gt;believe&lt;/word&gt;
+        ///  &lt;word&gt;business&lt;/word&gt;
         ///&lt;/words&gt;.
         /// </summary>
         internal static string words {
             get {
                 return ResourceManager.GetString("words", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;words&gt;
+        ///  &lt;word id =&quot;1&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;2&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;3&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;4&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;5&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;6&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;7&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;8&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;9&quot;&gt;Embarassed&lt;/word&gt;
+        ///  &lt;word id =&quot;10&quot;&gt;Embarassed&lt;/word&gt;
+        ///&lt;/words&gt;.
+        /// </summary>
+        internal static string words_test {
+            get {
+                return ResourceManager.GetString("words_test", resourceCulture);
             }
         }
     }

@@ -6,7 +6,7 @@ using WordBank.Repository;
 namespace WordBank.UnitTests.Repository
 {
     [TestFixture]
-    public class SpellingBank_Should
+    public class XmlWordBank_Should
     {
         [Test]
         public void LoadSpellings_AllValuesAreDefaultedToEmptyString()

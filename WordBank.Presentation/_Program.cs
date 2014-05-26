@@ -12,7 +12,7 @@ namespace WordBank.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Main(new XmlWordBank()));
+            Application.Run(new Console(new XmlWordBank()));
         }
     }
 }
