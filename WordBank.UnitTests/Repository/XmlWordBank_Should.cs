@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WordBank.Repository;
+using WordBank.Repository.Model;
 
 namespace WordBank.UnitTests.Repository
 {
@@ -13,7 +14,7 @@ namespace WordBank.UnitTests.Repository
         {
             var sut = new XmlWordBank();
 
-            List<Word> values = sut.SpellingsQueue.ToList();
+            List<WordAnswer> values = sut.WordQueue.ToList();
 
             Assert.IsTrue(values.TrueForAll(x => x.Answer == string.Empty));
         }
@@ -24,7 +25,7 @@ namespace WordBank.UnitTests.Repository
             var sut = new XmlWordBank();
 
             List<string> expected = Mother.ExpectedWordsOrder();
-            List<Word> actual = sut.SpellingsQueue.ToList();//to diff types that's why it's failing
+            List<WordAnswer> actual = sut.WordQueue.ToList();//to diff types that's why it's failing
 
             CollectionAssert.AreEqual(expected, actual);
         }
@@ -34,10 +35,10 @@ namespace WordBank.UnitTests.Repository
         {
             var sut = new XmlWordBank();
 
-            Word word = sut.GetWord();
+            WordAnswer wordAnswer = sut.GetWord();
 
-            Assert.AreEqual(1, word.Id);
-            Assert.AreEqual("Word1", word.Text);
+            Assert.AreEqual(1, wordAnswer.Id);
+            Assert.AreEqual("Word1", wordAnswer.Text);
             Assert.AreEqual(string.Empty, string.Empty);
         }
 
@@ -48,10 +49,10 @@ namespace WordBank.UnitTests.Repository
 
             sut.GetWord();
 
-            Word word = sut.GetWord();
+            WordAnswer wordAnswer = sut.GetWord();
 
-            Assert.AreEqual(2, word.Id);
-            Assert.AreEqual("Word2", word.Text);
+            Assert.AreEqual(2, wordAnswer.Id);
+            Assert.AreEqual("Word2", wordAnswer.Text);
             Assert.AreEqual(string.Empty, string.Empty);
         }
 
@@ -63,10 +64,10 @@ namespace WordBank.UnitTests.Repository
             sut.GetWord();
             sut.GetWord();
 
-            Word word = sut.GetWord();
+            WordAnswer wordAnswer = sut.GetWord();
 
-            Assert.AreEqual(3, word.Id);
-            Assert.AreEqual("Word3", word.Text);
+            Assert.AreEqual(3, wordAnswer.Id);
+            Assert.AreEqual("Word3", wordAnswer.Text);
             Assert.AreEqual(string.Empty, string.Empty);
         }
 
@@ -79,10 +80,10 @@ namespace WordBank.UnitTests.Repository
             sut.GetWord();
             sut.GetWord();
 
-            Word word = sut.GetWord();
+            WordAnswer wordAnswer = sut.GetWord();
 
-            Assert.AreEqual(4, word.Id);
-            Assert.AreEqual("Word4", word.Text);
+            Assert.AreEqual(4, wordAnswer.Id);
+            Assert.AreEqual("Word4", wordAnswer.Text);
             Assert.AreEqual(string.Empty, string.Empty);
         }
 
@@ -96,10 +97,10 @@ namespace WordBank.UnitTests.Repository
             sut.GetWord();
             sut.GetWord();
 
-            Word word = sut.GetWord();
+            WordAnswer wordAnswer = sut.GetWord();
 
-            Assert.AreEqual(5, word.Id);
-            Assert.AreEqual("Word5", word.Text);
+            Assert.AreEqual(5, wordAnswer.Id);
+            Assert.AreEqual("Word5", wordAnswer.Text);
             Assert.AreEqual(string.Empty, string.Empty);
         }
     }

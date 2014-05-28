@@ -4,64 +4,81 @@ using System.Linq;
 using System.Xml.Linq;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
+using WordBank.Repository.Model;
 
 namespace WordBank.Repository
 {
-    public class XmlWordBank : IWordBank<Word>
+    public class XmlWordBank : IWordBank<WordAnswer>
     {
         public event EventHandler<WordBankEmptyEventArgs> IsEmpty;
 
         public Dictionary<string, string> WordMap { get; set; }
 
-        public Queue<Word> SpellingsQueue { get; set; } 
+        public Queue<WordAnswer> WordQueue { get; private set; }
+
 
         public XmlWordBank()
         {
-            LoadWords(Properties.Resources.words);
+            InitialiseWordBank(Properties.Resources.words);
         }
 
-        public Dictionary<string, string> LoadWords(string xmlResource)
+
+        public void InitialiseWordBank(string resource)
         {
-            XDocument xDoc = XDocument.Parse(Properties.Resources.words);
+            XDocument xDoc = XDocument.Parse(resource);
             
-            IEnumerable<string> questions = xDoc.Descendants("word")
+            IEnumerable<string> wordCollection = QueryXDocForWords(xDoc);
+
+            PopulateWordMap(wordCollection);
+            InitialiseWordQueue();
+        }
+
+        private IEnumerable<string> QueryXDocForWords(XDocument xDoc)
+        {
+            IEnumerable<string> words = xDoc
+                .Descendants("word")
                 .Select(x => x.Value);
 
-            var dic = questions.ToDictionary(question => question, question => string.Empty);
-
-            WordMap = dic;
-
-            IEnumerable<Word> words = dic.Keys.Select((word, i) => new Word
-            {
-                Id = i + 1,
-                Text = word,
-                Answer = string.Empty,
-            });
-
-            SpellingsQueue = new Queue<Word>(words);
-
-            return dic;
+            return words;
         }
 
-        public void Update(Word word)
+        private void PopulateWordMap(IEnumerable<string> words)
         {
-            if(word != null && word.Answer != null)
-                WordMap[word.Text] = word.Answer;
+            Dictionary<string, string> dictionary = words.
+                    ToDictionary(q => q, question => string.Empty);
+
+            WordMap = dictionary;
         }
-        
-        public Word GetWord()
+
+        private void InitialiseWordQueue()
         {
-            Word word = null;
+            IEnumerable<WordAnswer> words = WordMap
+                .Keys
+                .Select((word, i) => new WordAnswer
+                    (i + 1, word, string.Empty));
+            
+            WordQueue = new Queue<WordAnswer>(words);    
+        }
+
+        public WordAnswer GetWord()
+        {
+            WordAnswer wordAnswer = null;
 
             try
             {
-                word = SpellingsQueue.Dequeue();
+                wordAnswer = WordQueue.Dequeue();
             }
             catch (InvalidOperationException)
             {
                 OnIsEmpty(new WordBankEmptyEventArgs(WordMap));
             }
-            return word;
+            return wordAnswer;
+        }
+
+        public void SubmitAnswer(WordAnswer wordAnswer)
+        {
+            if(wordAnswer != null && wordAnswer.Answer != null)
+                WordMap[wordAnswer.Text] = wordAnswer.Answer;
         }
 
         protected virtual void OnIsEmpty(WordBankEmptyEventArgs e)
@@ -69,5 +86,6 @@ namespace WordBank.Repository
             EventHandler<WordBankEmptyEventArgs> handler = IsEmpty;
             if (handler != null) handler(this, e);
         }
+
     }
 }

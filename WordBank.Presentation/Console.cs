@@ -1,31 +1,31 @@
 ﻿using System;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
-using WordBank.Repository;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
+using WordBank.Repository.Model;
 
 namespace WordBank.Presentation
 {
     public partial class Console : Form
     {
-        private readonly IWordBank<Word> _wordBank;
+        private readonly IWordBank<WordAnswer> _wordBank;
 
-        private SpeechSynthesizer _speechSynthesizer;
+        private readonly SpeechSynthesizer _speechSynthesizer;
 
-        private Word _currentWord;
+        private WordAnswer _currentWordAnswer;
 
 
-        public Console(IWordBank<Word> wordBank)
+        public Console(IWordBank<WordAnswer> wordBank
+            , SpeechSynthesizer speechSynthesizer)
         {
             _wordBank = wordBank;
+            _speechSynthesizer = speechSynthesizer;
 
             InitializeComponent();
             RegisterForWordBankEmptyEvent();
-            InitSpeechSynthesizer();
-            DisableNavigationButtons();
-            SpeakWord();
-            FocusToTextBox();
+            PronounceCurrentWord();
+            GiveFocusToAnswerTextBox();
             DisplayQuestionCount();
         }
 
@@ -34,82 +34,73 @@ namespace WordBank.Presentation
             _wordBank.IsEmpty += OnWordBankEmpty;
         }
 
-        private void InitSpeechSynthesizer()
+        private void PronounceCurrentWord()
         {
-            _speechSynthesizer = new SpeechSynthesizer
-            {
-                Volume = 100,
-                Rate =-2,
-            };
+            _currentWordAnswer = _wordBank.GetWord();
+
+            if (_currentWordAnswer == null)
+                return;
+
+            _txtBoxAnswer.Tag = _currentWordAnswer.Id;
+
+            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Text);
         }
 
-        private void DisableNavigationButtons()
-        {
-            _btnReplay.Enabled = false;
-        }
-
-        private void EnableNavigationButtons()
-        {
-            _btnReplay.Enabled = true;
-        }
-
-        void OnWordBankEmpty(object sender, WordBankEmptyEventArgs e)
-        {
-            var resultsForm = new Results(new Result
-            {
-                WordMap = _wordBank.WordMap, 
-                TotalWordCount = _wordBank.WordMap.Count,
-            });
-            
-            resultsForm.ShowDialog();
-        }
-
-        private void SpeakWord()
-        {
-            _currentWord = _wordBank.GetWord();
-
-            if (_currentWord == null) return;
-            
-            _txtBoxAnswer.Tag = _currentWord.Id;
-            
-            _speechSynthesizer.SpeakAsync(_currentWord.Text);
-   
-            EnableNavigationButtons();
-        }
-
-        private void SubmitAnswer_Click(object sender, EventArgs e)
-        {
-            string answer = _txtBoxAnswer.Text;
-
-            if (answer == string.Empty) 
-                answer = "No Answer Given";
-
-            _currentWord.Answer = answer;
-            
-            _wordBank.Update(_currentWord);
-
-            FocusToTextBox();            
-            SpeakWord(); 
-            DisplayQuestionCount();
-        }
-
-        private void FocusToTextBox()
+        private void GiveFocusToAnswerTextBox()
         {
             _txtBoxAnswer.Clear();
             _txtBoxAnswer.Focus();
         }
 
+        private void OnWordBankEmpty(object sender, WordBankEmptyEventArgs e)
+        {
+            DisplayTestResults();
+        }
+
+        private void DisplayTestResults()
+        {
+            var resultsForm = new Results(_wordBank.WordMap);
+
+            resultsForm.ShowDialog();
+        }
+
         private void DisplayQuestionCount()
         {
-            if(_currentWord != null)
-                _lblQuestionCount.Text = _currentWord.Id + " of " + _wordBank.WordMap.Count;
+            if (_currentWordAnswer != null)
+                _lblQuestionCount.Text = string.Format("{0} of {1}",
+                    _currentWordAnswer.Id, _wordBank.WordMap.Count); 
         }
-        
+
+        private void SubmitAnswer_Click(object sender, EventArgs e)
+        {
+            UpdateAnswer();
+            GiveFocusToAnswerTextBox();
+            PronounceCurrentWord();
+            DisplayQuestionCount();
+        }
+
+        private void UpdateAnswer()
+        {
+            string answer = _txtBoxAnswer.Text;
+
+            if (answer == string.Empty)
+                answer = "No Answer Given";
+
+            _currentWordAnswer.Answer = answer;
+
+            _wordBank.SubmitAnswer(_currentWordAnswer);
+        }
+
         private void ReplayWord_Click(object sender, EventArgs e)
         {
-            _speechSynthesizer.SpeakAsync(_currentWord.Text);
-            
+            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Text);
+
             _txtBoxAnswer.Focus();
-        } 
+        }
+
+        private void EndTestEarly_Click(object sender, EventArgs e)
+        {
+            DisplayTestResults();
+        }
     }
 }

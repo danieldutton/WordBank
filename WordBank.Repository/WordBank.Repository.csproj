@@ -44,8 +44,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Result.cs" />
-    <Compile Include="Word.cs" />
+    <Compile Include="Model\WordAnswer.cs" />
     <Compile Include="XmlWordBank.cs" />
   </ItemGroup>
   <ItemGroup>
