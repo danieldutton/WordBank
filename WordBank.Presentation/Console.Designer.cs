@@ -36,8 +36,10 @@
             this._btnSubmit = new System.Windows.Forms.Button();
             this._lblQuestionCount = new System.Windows.Forms.Label();
             this._btnEndTest = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -94,8 +96,8 @@
             this._lblQuestionCount.AutoSize = true;
             this._lblQuestionCount.BackColor = System.Drawing.Color.Transparent;
             this._lblQuestionCount.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._lblQuestionCount.ForeColor = System.Drawing.Color.SlateGray;
-            this._lblQuestionCount.Location = new System.Drawing.Point(9, 124);
+            this._lblQuestionCount.ForeColor = System.Drawing.Color.White;
+            this._lblQuestionCount.Location = new System.Drawing.Point(1, 3);
             this._lblQuestionCount.Name = "_lblQuestionCount";
             this._lblQuestionCount.Size = new System.Drawing.Size(14, 16);
             this._lblQuestionCount.TabIndex = 7;
@@ -111,6 +113,15 @@
             this._btnEndTest.UseVisualStyleBackColor = true;
             this._btnEndTest.Click += new System.EventHandler(this.EndTestEarly_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Brown;
+            this.panel2.Controls.Add(this._lblQuestionCount);
+            this.panel2.Location = new System.Drawing.Point(12, 118);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(51, 22);
+            this.panel2.TabIndex = 10;
+            // 
             // Console
             // 
             this.AcceptButton = this._btnSubmit;
@@ -118,10 +129,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(269, 147);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this._btnEndTest);
-            this.Controls.Add(this._lblQuestionCount);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(285, 185);
             this.MinimumSize = new System.Drawing.Size(285, 185);
@@ -130,8 +141,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -144,5 +156,6 @@
         private System.Windows.Forms.Button _btnSubmit;
         private System.Windows.Forms.Label _lblQuestionCount;
         private System.Windows.Forms.Button _btnEndTest;
+        private System.Windows.Forms.Panel panel2;
     }
 }

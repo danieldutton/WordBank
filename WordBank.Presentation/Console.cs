@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 using WordBank.Repository;
@@ -9,6 +10,9 @@ namespace WordBank.Presentation
 {
     public partial class Console : Form
     {
+        [DllImport("winmm.dll", SetLastError = true)]
+        public static extern uint waveOutGetNumDevs();
+
         private readonly IWordBank<WordAnswer> _wordBank;
 
         private readonly SpeechSynthesizer _speechSynthesizer;
@@ -23,10 +27,20 @@ namespace WordBank.Presentation
             _speechSynthesizer = speechSynthesizer;
 
             InitializeComponent();
+            CheckForSoundCard();
             RegisterForWordBankEmptyEvent();
             PronounceCurrentWord();
             GiveAnswerTextBoxFocus();
             DisplayQuestionCount();
+        }
+
+        private void CheckForSoundCard()
+        {
+            if (waveOutGetNumDevs() == 0)
+            {
+                MessageBox.Show("Audio device required but not detected");
+                Enabled = false;
+            }    
         }
 
         private void RegisterForWordBankEmptyEvent()
