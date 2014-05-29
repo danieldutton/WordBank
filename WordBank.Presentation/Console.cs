@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 using WordBank.Repository;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
+using WordBank.Utility;
 
 namespace WordBank.Presentation
 {
