@@ -87,6 +87,10 @@
       <Project>{65B97906-15C4-4E55-B023-6940F56285AA}</Project>
       <Name>WordBank.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WordBank.Utility\WordBank.Utility.csproj">
+      <Project>{F5BEF207-E314-40CB-A46A-C153D7AC13D0}</Project>
+      <Name>WordBank.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\greentick.png" />

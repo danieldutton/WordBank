@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using System.Resources;
-using WordBank.Repository.Model;
+using WordBank.Repository;
 
 namespace WordBank.IntegrationTests
 {

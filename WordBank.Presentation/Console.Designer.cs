@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Console));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this._btnReplay = new System.Windows.Forms.Button();
+            this._txtBoxAnswer = new System.Windows.Forms.TextBox();
+            this._btnSubmit = new System.Windows.Forms.Button();
             this._lblQuestionCount = new System.Windows.Forms.Label();
             this._btnEndTest = new System.Windows.Forms.Button();
-            this._btnSubmit = new System.Windows.Forms.Button();
-            this._txtBoxAnswer = new System.Windows.Forms.TextBox();
-            this._btnReplay = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,13 +61,41 @@
             this.panel1.Size = new System.Drawing.Size(246, 36);
             this.panel1.TabIndex = 9;
             // 
+            // _btnReplay
+            // 
+            this._btnReplay.Image = ((System.Drawing.Image)(resources.GetObject("_btnReplay.Image")));
+            this._btnReplay.Location = new System.Drawing.Point(13, 6);
+            this._btnReplay.Name = "_btnReplay";
+            this._btnReplay.Size = new System.Drawing.Size(38, 23);
+            this._btnReplay.TabIndex = 6;
+            this._btnReplay.UseVisualStyleBackColor = true;
+            this._btnReplay.Click += new System.EventHandler(this.ReplayWord_Click);
+            // 
+            // _txtBoxAnswer
+            // 
+            this._txtBoxAnswer.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._txtBoxAnswer.Location = new System.Drawing.Point(60, 8);
+            this._txtBoxAnswer.Name = "_txtBoxAnswer";
+            this._txtBoxAnswer.Size = new System.Drawing.Size(129, 20);
+            this._txtBoxAnswer.TabIndex = 3;
+            // 
+            // _btnSubmit
+            // 
+            this._btnSubmit.Location = new System.Drawing.Point(195, 6);
+            this._btnSubmit.Name = "_btnSubmit";
+            this._btnSubmit.Size = new System.Drawing.Size(48, 23);
+            this._btnSubmit.TabIndex = 4;
+            this._btnSubmit.Text = "Submit";
+            this._btnSubmit.UseVisualStyleBackColor = true;
+            this._btnSubmit.Click += new System.EventHandler(this.SubmitAnswer_Click);
+            // 
             // _lblQuestionCount
             // 
             this._lblQuestionCount.AutoSize = true;
             this._lblQuestionCount.BackColor = System.Drawing.Color.Transparent;
             this._lblQuestionCount.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lblQuestionCount.ForeColor = System.Drawing.Color.SlateGray;
-            this._lblQuestionCount.Location = new System.Drawing.Point(12, 121);
+            this._lblQuestionCount.Location = new System.Drawing.Point(9, 124);
             this._lblQuestionCount.Name = "_lblQuestionCount";
             this._lblQuestionCount.Size = new System.Drawing.Size(14, 16);
             this._lblQuestionCount.TabIndex = 7;
@@ -82,34 +110,6 @@
             this._btnEndTest.Text = "Finish";
             this._btnEndTest.UseVisualStyleBackColor = true;
             this._btnEndTest.Click += new System.EventHandler(this.EndTestEarly_Click);
-            // 
-            // _btnSubmit
-            // 
-            this._btnSubmit.Location = new System.Drawing.Point(195, 6);
-            this._btnSubmit.Name = "_btnSubmit";
-            this._btnSubmit.Size = new System.Drawing.Size(48, 23);
-            this._btnSubmit.TabIndex = 4;
-            this._btnSubmit.Text = "Submit";
-            this._btnSubmit.UseVisualStyleBackColor = true;
-            this._btnSubmit.Click += new System.EventHandler(this.SubmitAnswer_Click);
-            // 
-            // _txtBoxAnswer
-            // 
-            this._txtBoxAnswer.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._txtBoxAnswer.Location = new System.Drawing.Point(60, 8);
-            this._txtBoxAnswer.Name = "_txtBoxAnswer";
-            this._txtBoxAnswer.Size = new System.Drawing.Size(129, 20);
-            this._txtBoxAnswer.TabIndex = 3;
-            // 
-            // _btnReplay
-            // 
-            this._btnReplay.Image = ((System.Drawing.Image)(resources.GetObject("_btnReplay.Image")));
-            this._btnReplay.Location = new System.Drawing.Point(13, 6);
-            this._btnReplay.Name = "_btnReplay";
-            this._btnReplay.Size = new System.Drawing.Size(38, 23);
-            this._btnReplay.TabIndex = 6;
-            this._btnReplay.UseVisualStyleBackColor = true;
-            this._btnReplay.Click += new System.EventHandler(this.ReplayWord_Click);
             // 
             // Console
             // 

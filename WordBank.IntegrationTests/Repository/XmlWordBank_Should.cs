@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Resources;
 using WordBank.Repository;
-using WordBank.Repository.Model;
+using WordBank.Utility;
 
 namespace WordBank.IntegrationTests.Repository
 {
@@ -14,6 +14,8 @@ namespace WordBank.IntegrationTests.Repository
 
         private string _xmlResource;
 
+        private XDocumentParser _xDocumentParser;
+
         private XmlWordBank _sut;
 
         [SetUp]
@@ -21,7 +23,8 @@ namespace WordBank.IntegrationTests.Repository
         {
             _resourceManager = Mother.GetRepositoryResourceManager();
             _xmlResource = _resourceManager.GetString("words_test");
-            _sut = new XmlWordBank();
+            _xDocumentParser = new XDocumentParser();
+            _sut = new XmlWordBank(_xDocumentParser);
         }
 
         [Test]
@@ -90,6 +93,7 @@ namespace WordBank.IntegrationTests.Repository
         {
             _resourceManager = null;
             _xmlResource = null;
+            _xDocumentParser = null;
             _sut = null;
         }
     }

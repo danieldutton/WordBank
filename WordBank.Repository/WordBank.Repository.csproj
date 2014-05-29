@@ -44,7 +44,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Model\WordAnswer.cs" />
+    <Compile Include="WordAnswer.cs" />
     <Compile Include="XmlWordBank.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\words_test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WordBank.Utility\WordBank.Utility.csproj">
+      <Project>{F5BEF207-E314-40CB-A46A-C153D7AC13D0}</Project>
+      <Name>WordBank.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

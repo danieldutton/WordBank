@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{409CC0B5-7E6F-492A-8A8C-94BD807ABBE8}</ProjectGuid>
+    <ProjectGuid>{F5BEF207-E314-40CB-A46A-C153D7AC13D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WordBank.IntegrationTests</RootNamespace>
-    <AssemblyName>WordBank.IntegrationTests</AssemblyName>
+    <RootNamespace>WordBank.Utility</RootNamespace>
+    <AssemblyName>WordBank.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,31 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mother.cs" />
+    <Compile Include="Exceptions\XmlParseException.cs" />
+    <Compile Include="Interfaces\IXDocumentParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\XmlWordBank_Should.cs" />
+    <Compile Include="ResourceLoader.cs" />
+    <Compile Include="XDocumentParser.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WordBank.Repository\WordBank.Repository.csproj">
-      <Project>{65B97906-15C4-4E55-B023-6940F56285AA}</Project>
-      <Name>WordBank.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WordBank.Utility\WordBank.Utility.csproj">
-      <Project>{F5BEF207-E314-40CB-A46A-C153D7AC13D0}</Project>
-      <Name>WordBank.Utility</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

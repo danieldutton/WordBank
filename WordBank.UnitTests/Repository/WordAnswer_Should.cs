@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using WordBank.Repository.Model;
+using WordBank.Repository;
 
 namespace WordBank.UnitTests.Repository
 {
@@ -9,9 +9,9 @@ namespace WordBank.UnitTests.Repository
         [Test]
         public void ToString_ReturnTheCorrectStringValue()
         {
-            var sut = new WordAnswer(id: 1, text: "Text", answer: "Answer");
+            var sut = new WordAnswer(id: 1, word: "Word", answer: "Answer");
             
-            const string expected = "[WordAnswer] Id:1 Text:Text Answer:Answer";
+            const string expected = "[WordAnswer] Id:1 Word:Word Answer:Answer";
             string actual = sut.ToString();
 
             Assert.AreEqual(expected, actual);

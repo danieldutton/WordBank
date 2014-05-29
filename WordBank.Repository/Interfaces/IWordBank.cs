@@ -10,6 +10,8 @@ namespace WordBank.Repository.Interfaces
 
         Dictionary<string, string> WordMap { get; set; }
 
+        void InitialiseWordBank(string resource);
+
         TValue GetWord();
 
         void SubmitAnswer(TValue wordAnswer);

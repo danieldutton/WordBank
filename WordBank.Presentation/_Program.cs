@@ -3,7 +3,8 @@ using System.Speech.Synthesis;
 using System.Windows.Forms;
 using WordBank.Repository;
 using WordBank.Repository.Interfaces;
-using WordBank.Repository.Model;
+using WordBank.Utility;
+using WordBank.Utility.Interfaces;
 
 namespace WordBank.Presentation
 {
@@ -15,8 +16,13 @@ namespace WordBank.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IWordBank<WordAnswer> wordBank = new XmlWordBank();
+            IXDocumentParser xDocParser = new XDocumentParser();
 
+            var rm = ResourceLoader.GetRepositoryResourceManager();
+
+            IWordBank<WordAnswer> wordBank = new XmlWordBank(xDocParser);
+            wordBank.InitialiseWordBank(rm.GetString("words"));
+            
             var speechSynthesizer = new SpeechSynthesizer
             {
                 Volume = 100,

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
+using WordBank.Repository;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
-using WordBank.Repository.Model;
 
 namespace WordBank.Presentation
 {
@@ -25,7 +25,7 @@ namespace WordBank.Presentation
             InitializeComponent();
             RegisterForWordBankEmptyEvent();
             PronounceCurrentWord();
-            GiveFocusToAnswerTextBox();
+            GiveAnswerTextBoxFocus();
             DisplayQuestionCount();
         }
 
@@ -43,10 +43,10 @@ namespace WordBank.Presentation
 
             _txtBoxAnswer.Tag = _currentWordAnswer.Id;
 
-            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Text);
+            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Word);
         }
 
-        private void GiveFocusToAnswerTextBox()
+        private void GiveAnswerTextBoxFocus()
         {
             _txtBoxAnswer.Clear();
             _txtBoxAnswer.Focus();
@@ -74,7 +74,7 @@ namespace WordBank.Presentation
         private void SubmitAnswer_Click(object sender, EventArgs e)
         {
             UpdateAnswer();
-            GiveFocusToAnswerTextBox();
+            GiveAnswerTextBoxFocus();
             PronounceCurrentWord();
             DisplayQuestionCount();
         }
@@ -93,7 +93,7 @@ namespace WordBank.Presentation
 
         private void ReplayWord_Click(object sender, EventArgs e)
         {
-            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Text);
+            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Word);
 
             _txtBoxAnswer.Focus();
         }

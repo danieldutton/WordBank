@@ -1,108 +1,313 @@
-﻿using NUnit.Framework;
+﻿using Moq;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using WordBank.Repository;
-using WordBank.Repository.Model;
+using WordBank.Utility.Interfaces;
 
 namespace WordBank.UnitTests.Repository
 {
     [TestFixture]
     public class XmlWordBank_Should
     {
-        [Test]
-        public void LoadSpellings_AllValuesAreDefaultedToEmptyString()
+        private Mock<IXDocumentParser> _fakeXDocParser;
+
+        private XmlWordBank _sut;
+
+        private XDocument _xDocument;
+
+        [SetUp]
+        public void Init()
         {
-            var sut = new XmlWordBank();
-
-            List<WordAnswer> values = sut.WordQueue.ToList();
-
-            Assert.IsTrue(values.TrueForAll(x => x.Answer == string.Empty));
+            _fakeXDocParser = new Mock<IXDocumentParser>();
+            _sut = new XmlWordBank(_fakeXDocParser.Object);
+            _xDocument = Mother.GetTestXDocument();
         }
 
         [Test]
-        public void LoadSpellings_RetrievesTenSpellingsInCorrectOrder()
+        public void InitialiseWordBank_CallParseXDocument_ExactlyOnce()
         {
-            var sut = new XmlWordBank();
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
 
-            List<string> expected = Mother.ExpectedWordsOrder();
-            List<WordAnswer> actual = sut.WordQueue.ToList();//to diff types that's why it's failing
+            _sut.InitialiseWordBank(It.IsAny<string>());
 
-            CollectionAssert.AreEqual(expected, actual);
+            _fakeXDocParser.Verify(x => x.ParseXDocument(It.IsAny<string>()),
+                Times.Once());
         }
 
         [Test]
-        public void GetSpelling_GetSpellingOne()
+        public void InitialiseWordBank_CallParseXDocument_WithCorrectData()
         {
-            var sut = new XmlWordBank();
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
 
-            WordAnswer wordAnswer = sut.GetWord();
+            _sut.InitialiseWordBank("Resources");
 
-            Assert.AreEqual(1, wordAnswer.Id);
-            Assert.AreEqual("Word1", wordAnswer.Text);
-            Assert.AreEqual(string.Empty, string.Empty);
+            _fakeXDocParser.Verify(x => x.ParseXDocument(It.Is<string>(
+                y => y.Equals("Resources"))));
         }
 
         [Test]
-        public void GetSpelling_GetSpellingTwo()
+        public void InitialiseWordBank_InitPropertyWordMap_With10Items()
         {
-            var sut = new XmlWordBank();
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
 
-            sut.GetWord();
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            Dictionary<string, string> wMap = _sut.WordMap;
 
-            WordAnswer wordAnswer = sut.GetWord();
-
-            Assert.AreEqual(2, wordAnswer.Id);
-            Assert.AreEqual("Word2", wordAnswer.Text);
-            Assert.AreEqual(string.Empty, string.Empty);
+            Assert.AreEqual(10, wMap.Count);
         }
 
         [Test]
-        public void GetSpelling_GetSpellingThree()
+        public void InitialiseWordBank_InitPropertyWordMap_WithKeySequence()
         {
-            var sut = new XmlWordBank();
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
 
-            sut.GetWord();
-            sut.GetWord();
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            List<string> keyList = _sut.WordMap.Select(x => x.Key).ToList();
 
-            WordAnswer wordAnswer = sut.GetWord();
-
-            Assert.AreEqual(3, wordAnswer.Id);
-            Assert.AreEqual("Word3", wordAnswer.Text);
-            Assert.AreEqual(string.Empty, string.Empty);
+            Assert.AreEqual(Mother.ExpectedWordKeySequence(), keyList);
         }
 
         [Test]
-        public void GetSpelling_GetSpellingFour()
+        public void InitialiseWordBank_InitPropertyWordMap_WithCorrectValueSequence()
         {
-            var sut = new XmlWordBank();
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
 
-            sut.GetWord();
-            sut.GetWord();
-            sut.GetWord();
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            List<string> valueList = _sut.WordMap.Select(x => x.Value).ToList();
 
-            WordAnswer wordAnswer = sut.GetWord();
-
-            Assert.AreEqual(4, wordAnswer.Id);
-            Assert.AreEqual("Word4", wordAnswer.Text);
-            Assert.AreEqual(string.Empty, string.Empty);
+            Assert.IsTrue(valueList.TrueForAll(y => y.Equals(string.Empty)));
         }
 
         [Test]
-        public void GetSpelling_GetSpellingFive()
+        public void InitialiseWordBank_InitPropertyWordQueue_With10Items()
         {
-            var sut = new XmlWordBank();
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
 
-            sut.GetWord();
-            sut.GetWord();
-            sut.GetWord();
-            sut.GetWord();
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            Queue<WordAnswer> wordQueue = _sut.WordQueue;
 
-            WordAnswer wordAnswer = sut.GetWord();
+            Assert.AreEqual(10, wordQueue.Count);
+            CollectionAssert.AllItemsAreInstancesOfType(wordQueue, typeof (WordAnswer));
+        }
 
-            Assert.AreEqual(5, wordAnswer.Id);
-            Assert.AreEqual("Word5", wordAnswer.Text);
-            Assert.AreEqual(string.Empty, string.Empty);
+        [Test]
+        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectIdSequence()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            List<int> idList = _sut.WordQueue.Select(x => x.Id).ToList();
+
+            Assert.AreEqual(Mother.ExpectedIdSequence(), idList);
+        }
+
+        [Test]
+        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectTextSequence()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            List<string> wordList = _sut.WordQueue.Select(x => x.Word).ToList();
+
+            Assert.AreEqual(Mother.ExpectedWordKeySequence(), wordList);
+        }
+
+        [Test]
+        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectAnswerSequence()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            List<string> answerList = _sut.WordQueue.Select(x => x.Answer).ToList();
+
+            Assert.IsTrue(answerList.All(x => x == string.Empty));
+        }
+
+        //sample of 5
+        [Test]
+        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FirstWord()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            WordAnswer result = _sut.GetWord();
+
+            Assert.AreEqual(1, result.Id);
+        }
+
+        [Test]
+        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_SecondWord()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            
+            _sut.GetWord();
+            WordAnswer result = _sut.GetWord();
+
+            Assert.AreEqual(2, result.Id);
+        }
+
+        [Test]
+        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_ThirdWord()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.GetWord();
+            _sut.GetWord();
+            WordAnswer result = _sut.GetWord();
+
+            Assert.AreEqual(3, result.Id);
+        }
+
+        [Test]
+        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FourthWord()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.GetWord();
+            _sut.GetWord();
+            _sut.GetWord();
+            WordAnswer result = _sut.GetWord();
+
+            Assert.AreEqual(4, result.Id);
+        }
+
+        [Test]
+        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FifthWord()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.GetWord();
+            _sut.GetWord();
+            _sut.GetWord();
+            _sut.GetWord();
+            WordAnswer result = _sut.GetWord();
+
+            Assert.AreEqual(5, result.Id);
+        }
+
+        [Test]
+        public void GetWord_FireIsEmptyEvent_IfQueueIsEmpty()
+        {
+            bool wasFired = false;
+            var emptyQueue = new Queue<WordAnswer>();
+            _sut.IsEmpty += (o,e) => wasFired = true;
+            
+            _sut.WordQueue = emptyQueue;
+            _sut.GetWord();
+
+            Assert.IsTrue(wasFired);
+        }
+
+        [Test]
+        public void SubmitAnswer_FailtToUpdateWordMap_IfWordAnswerIsNull()
+        {
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.SubmitAnswer(null);
+
+            Assert.AreEqual(10, _sut.WordMap.Count);
+        }
+
+        //sample of 5
+        [Test]
+        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer1()
+        {
+            var wordAnswer = new WordAnswer(1, "word1", "answer1");
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.SubmitAnswer(wordAnswer);
+            Dictionary<string, string> wMap = _sut.WordMap;
+
+            Assert.AreEqual("answer1", wMap["word1"]);
+        }
+
+        [Test]
+        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer2()
+        {
+            var wordAnswer = new WordAnswer(1, "word2", "answer2");
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.SubmitAnswer(wordAnswer);
+            Dictionary<string, string> wMap = _sut.WordMap;
+
+            Assert.AreEqual("answer2", wMap["word2"]);
+        }
+
+        [Test]
+        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer3()
+        {
+            var wordAnswer = new WordAnswer(1, "word3", "answer3");
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.SubmitAnswer(wordAnswer);
+            Dictionary<string, string> wMap = _sut.WordMap;
+
+            Assert.AreEqual("answer3", wMap["word3"]);
+        }
+
+        [Test]
+        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer4()
+        {
+            var wordAnswer = new WordAnswer(1, "word4", "answer4");
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.SubmitAnswer(wordAnswer);
+            Dictionary<string, string> wMap = _sut.WordMap;
+
+            Assert.AreEqual("answer4", wMap["word4"]);
+        }
+
+        [Test]
+        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer5()
+        {
+            var wordAnswer = new WordAnswer(1, "word5", "answer5");
+            _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
+                .Returns(_xDocument);
+
+            _sut.InitialiseWordBank(It.IsAny<string>());
+            _sut.SubmitAnswer(wordAnswer);
+            Dictionary<string, string> wMap = _sut.WordMap;
+
+            Assert.AreEqual("answer5", wMap["word5"]);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            _fakeXDocParser = null;
+            _sut = null;
+            _xDocument = null;
         }
     }
-
 }

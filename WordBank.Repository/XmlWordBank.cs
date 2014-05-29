@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml.Linq;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
-using WordBank.Repository.Model;
+using WordBank.Utility.Interfaces;
 
 namespace WordBank.Repository
 {
@@ -12,20 +12,21 @@ namespace WordBank.Repository
     {
         public event EventHandler<WordBankEmptyEventArgs> IsEmpty;
 
+        private readonly IXDocumentParser _xDocParser;
+
         public Dictionary<string, string> WordMap { get; set; }
 
-        public Queue<WordAnswer> WordQueue { get; private set; }
+        public Queue<WordAnswer> WordQueue { get;  set; }
 
 
-        public XmlWordBank()
+        public XmlWordBank(IXDocumentParser xDocParser)
         {
-            InitialiseWordBank(Properties.Resources.words);
+            _xDocParser = xDocParser;
         }
-
 
         public void InitialiseWordBank(string resource)
         {
-            XDocument xDoc = XDocument.Parse(resource);
+            XDocument xDoc = _xDocParser.ParseXDocument(resource);
             
             IEnumerable<string> wordCollection = QueryXDocForWords(xDoc);
 
@@ -78,7 +79,7 @@ namespace WordBank.Repository
         public void SubmitAnswer(WordAnswer wordAnswer)
         {
             if(wordAnswer != null && wordAnswer.Answer != null)
-                WordMap[wordAnswer.Text] = wordAnswer.Answer;
+                WordMap[wordAnswer.Word] = wordAnswer.Answer;
         }
 
         protected virtual void OnIsEmpty(WordBankEmptyEventArgs e)
