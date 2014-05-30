@@ -71,6 +71,15 @@ namespace WordBank.Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Audio device required but not detected.
+        /// </summary>
+        internal static string NoAudioWarning {
+            get {
+                return ResourceManager.GetString("NoAudioWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap redCrossIcon {

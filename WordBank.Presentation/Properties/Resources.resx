@@ -121,6 +121,10 @@
   <data name="greentick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\greentick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NoAudioWarning" xml:space="preserve">
+    <value>Audio device required but not detected</value>
+    <comment>Message displayed if user has no audio capabilities</comment>
+  </data>
   <data name="redCrossIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\redCrossIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

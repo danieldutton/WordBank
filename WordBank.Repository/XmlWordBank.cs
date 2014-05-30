@@ -87,6 +87,5 @@ namespace WordBank.Repository
             EventHandler<WordBankEmptyEventArgs> handler = IsEmpty;
             if (handler != null) handler(this, e);
         }
-
     }
 }

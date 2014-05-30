@@ -7,16 +7,16 @@ namespace WordBank.Presentation
 {
     public partial class Results : Form
     {
-        private readonly Dictionary<string, string> _completedWordMap; 
+        private readonly Dictionary<string, string> _wordMap; 
 
         private int _score;
 
         private int _newLineYPos;
 
 
-        public Results(Dictionary<string, string> completedWordMap)
+        public Results(Dictionary<string, string> wordMap)
         {
-            _completedWordMap = completedWordMap;
+            _wordMap = wordMap;
 
             InitializeComponent();
             PrintResults();
@@ -24,7 +24,7 @@ namespace WordBank.Presentation
 
         private void PrintResults()
         {
-            foreach (KeyValuePair<string, string> entry in _completedWordMap)
+            foreach (KeyValuePair<string, string> entry in _wordMap)
             {
                 DisplayTestWordsAndAnswer(entry);
 
@@ -58,7 +58,8 @@ namespace WordBank.Presentation
 
         private bool AnswerCorrect(KeyValuePair<string, string> entry)
         {
-            return entry.Key.Equals(entry.Value, StringComparison.InvariantCultureIgnoreCase);
+            return entry.Key.Equals(entry.Value, 
+                StringComparison.InvariantCultureIgnoreCase);
         }
 
         private void MarkAsCorrect()
@@ -92,7 +93,8 @@ namespace WordBank.Presentation
 
         private void DisplayFinalScore()
         {
-            _lblScore.Text = "You scored " + _score + " out of " + _completedWordMap.Count;
+            _lblScore.Text = string.Format("You Scored {0} out of {1}",
+                _score, _wordMap.Count);
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)

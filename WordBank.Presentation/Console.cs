@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using WordBank.Repository;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
@@ -20,7 +19,7 @@ namespace WordBank.Presentation
 
         private readonly SpeechSynthesizer _speechSynthesizer;
 
-        private WordAnswer _currentWordAnswer;
+        private WordAnswer _currentWord;
 
 
         public Console(IWordBank<WordAnswer> wordBank
@@ -30,43 +29,38 @@ namespace WordBank.Presentation
             _speechSynthesizer = speechSynthesizer;
 
             InitializeComponent();
-            CheckForSoundCard();
-            RegisterForWordBankEmptyEvent();
-            PronounceCurrentWord();
-            GiveAnswerTextBoxFocus();
-            DisplayQuestionCount();
-        }
-
-        private void CheckForSoundCard()
-        {
-            if (waveOutGetNumDevs() == 0)
-            {
-                MessageBox.Show("Audio device required but not detected");
-                Enabled = false;
-            }    
-        }
-
-        private void RegisterForWordBankEmptyEvent()
-        {
+            DisableIfNoAudio();
+            PronounceNextWord();
+            GiveFocusToAnswerTextBox();
+            UpdateQuestionCountLabels();
+            
             _wordBank.IsEmpty += OnWordBankEmpty;
         }
 
-        private void PronounceCurrentWord()
+        private void DisableIfNoAudio()
         {
-            _currentWordAnswer = _wordBank.GetWord();
+            if (waveOutGetNumDevs() == 0)
+            {
+                MessageBox.Show(Properties.Resources.NoAudioWarning);
 
-            if (_currentWordAnswer == null)
-                return;
-
-            _txtBoxAnswer.Tag = _currentWordAnswer.Id;
-
-            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Word);
+                Enabled = false;
+            }
         }
 
-        private void GiveAnswerTextBoxFocus()
+        private void PronounceNextWord()
         {
-            _txtBoxAnswer.Clear();
-            _txtBoxAnswer.Focus();
+            _currentWord = _wordBank.GetWord();
+
+            if (_currentWord == null)
+                return;
+
+            _speechSynthesizer.SpeakAsync(_currentWord.Word);
+        }
+
+        private void GiveFocusToAnswerTextBox()
+        {
+            _txtBoxUserAnswer.Clear();
+            _txtBoxUserAnswer.Focus();
         }
 
         private void OnWordBankEmpty(object sender, WordBankEmptyEventArgs e)
@@ -81,43 +75,65 @@ namespace WordBank.Presentation
             resultsForm.ShowDialog();
         }
 
-        private void DisplayQuestionCount()
+        private void UpdateQuestionCountLabels()
         {
-            if (_currentWordAnswer != null)
+            if (_currentWord != null)
                 _lblQuestionCount.Text = string.Format("{0} of {1}",
-                    _currentWordAnswer.Id, _wordBank.WordMap.Count); 
+                    _currentWord.Id, _wordBank.WordMap.Count); 
         }
 
         private void SubmitAnswer_Click(object sender, EventArgs e)
         {
             UpdateAnswer();
-            GiveAnswerTextBoxFocus();
-            PronounceCurrentWord();
-            DisplayQuestionCount();
+            GiveFocusToAnswerTextBox();
+            PronounceNextWord();
+            UpdateQuestionCountLabels();
         }
 
         private void UpdateAnswer()
         {
-            string answer = _txtBoxAnswer.Text;
+            string answer = _txtBoxUserAnswer.Text;
 
             if (answer == string.Empty)
                 answer = "No Answer Given";
 
-            _currentWordAnswer.Answer = answer;
+            _currentWord.Answer = answer;
 
-            _wordBank.SubmitAnswer(_currentWordAnswer);
+            _wordBank.SubmitAnswer(_currentWord);
         }
 
-        private void ReplayWord_Click(object sender, EventArgs e)
+        private void ReplayWordAudio_Click(object sender, EventArgs e)
         {
-            _speechSynthesizer.SpeakAsync(_currentWordAnswer.Word);
+            _speechSynthesizer.SpeakAsync(_currentWord.Word);
 
-            _txtBoxAnswer.Focus();
+            GiveFocusToAnswerTextBox();
         }
 
         private void EndTestEarly_Click(object sender, EventArgs e)
         {
             DisplayTestResults();
+        }
+
+        private void ImportWordFile_Click(object sender, EventArgs e)
+        {
+            var openFileDialog1 = new OpenFileDialog
+            {
+                Multiselect = false,
+                Filter = "XML files (*.xml)|*.xml",
+            };
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                //read in xmlFile
+                string xml = openFileDialog1.FileName;
+                XDocument doc = XDocument.Load(xml);
+                
+                //check it's well formed
+
+                //save it to resources
+                var rm = ResourceLoader.GetRepositoryResourceManager();
+                
+            }
         }
     }
 }
