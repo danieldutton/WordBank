@@ -82,6 +82,13 @@ namespace WordBank.Presentation
                     _currentWord.Id, _wordBank.WordMap.Count); 
         }
 
+        private void ResetQuestionCountLables()
+        {
+            if (_currentWord != null)
+                _lblQuestionCount.Text = string.Format("{0} of {1}",
+                    0, _wordBank.WordMap.Count);    
+        }
+
         private void SubmitAnswer_Click(object sender, EventArgs e)
         {
             UpdateAnswer();
@@ -130,10 +137,23 @@ namespace WordBank.Presentation
                 
                 //check it's well formed
 
-                //save it to resources
-                var rm = ResourceLoader.GetRepositoryResourceManager();
-                
+                //save it to resources                
+                _wordBank.InitialiseWordBank(doc.ToString());
+                //it is not clearing the first word pronounced
+                tabControl1.SelectTab(0);
+                ResetQuestionCountLables();
+                PronounceNextWord();
             }
+        }
+
+        private void ResetToDefaultWordXmlFile(object sender, EventArgs e)
+        {
+            _wordBank.InitialiseWordBank(
+                ResourceLoader.GetRepositoryResourceManager().GetString("words"));
+
+            tabControl1.SelectTab(0);
+            ResetQuestionCountLables();
+            PronounceNextWord();
         }
     }
 }

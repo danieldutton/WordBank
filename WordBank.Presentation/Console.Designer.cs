@@ -42,6 +42,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this._btnResetDefaults = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,9 +92,9 @@
             // 
             // _btnSubmit
             // 
-            this._btnSubmit.Location = new System.Drawing.Point(195, 6);
+            this._btnSubmit.Location = new System.Drawing.Point(191, 6);
             this._btnSubmit.Name = "_btnSubmit";
-            this._btnSubmit.Size = new System.Drawing.Size(48, 23);
+            this._btnSubmit.Size = new System.Drawing.Size(51, 23);
             this._btnSubmit.TabIndex = 4;
             this._btnSubmit.Text = "Submit";
             this._btnSubmit.UseVisualStyleBackColor = true;
@@ -113,9 +114,9 @@
             // 
             // _btnEndTest
             // 
-            this._btnEndTest.Location = new System.Drawing.Point(201, 111);
+            this._btnEndTest.Location = new System.Drawing.Point(197, 111);
             this._btnEndTest.Name = "_btnEndTest";
-            this._btnEndTest.Size = new System.Drawing.Size(48, 23);
+            this._btnEndTest.Size = new System.Drawing.Size(51, 23);
             this._btnEndTest.TabIndex = 8;
             this._btnEndTest.Text = "Finish";
             this._btnEndTest.UseVisualStyleBackColor = true;
@@ -134,6 +135,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(7, 8);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -146,24 +148,25 @@
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this._btnEndTest);
             this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(257, 144);
+            this.tabPage1.Size = new System.Drawing.Size(257, 141);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Test";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this._btnResetDefaults);
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(257, 144);
+            this.tabPage2.Size = new System.Drawing.Size(257, 141);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Settings";
+            this.tabPage2.Text = "Import";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // _btnResetDefaults
@@ -174,6 +177,7 @@
             this._btnResetDefaults.TabIndex = 1;
             this._btnResetDefaults.Text = "Reset to defaults";
             this._btnResetDefaults.UseVisualStyleBackColor = true;
+            this._btnResetDefaults.Click += new System.EventHandler(this.ResetToDefaultWordXmlFile);
             // 
             // button1
             // 
@@ -181,9 +185,21 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Import";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ImportWordFile_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.MaximumSize = new System.Drawing.Size(250, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 48);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "To import a new word file, click inport, browse to the xml file and click ok.  Th" +
+    "en return to the test tab and start taking the test as usual.";
             // 
             // Console
             // 
@@ -206,6 +222,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -225,5 +242,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button _btnResetDefaults;
+        private System.Windows.Forms.Label label1;
     }
 }
