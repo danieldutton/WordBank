@@ -40,9 +40,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this._btnResetDefaults = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -169,13 +169,25 @@
             this.tabPage2.Text = "Import";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.MaximumSize = new System.Drawing.Size(250, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(245, 48);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "To import a new word file, click inport, browse to the xml file and click ok.  Th" +
+    "en return to the test tab and start taking the test as usual.";
+            // 
             // _btnResetDefaults
             // 
             this._btnResetDefaults.Location = new System.Drawing.Point(6, 115);
             this._btnResetDefaults.Name = "_btnResetDefaults";
-            this._btnResetDefaults.Size = new System.Drawing.Size(103, 23);
+            this._btnResetDefaults.Size = new System.Drawing.Size(90, 23);
             this._btnResetDefaults.TabIndex = 1;
-            this._btnResetDefaults.Text = "Reset to defaults";
+            this._btnResetDefaults.Text = "Reset defaults";
             this._btnResetDefaults.UseVisualStyleBackColor = true;
             this._btnResetDefaults.Click += new System.EventHandler(this.ResetToDefaultWordXmlFile);
             // 
@@ -188,18 +200,6 @@
             this.button1.Text = "Import";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ImportWordFile_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(6, 7);
-            this.label1.MaximumSize = new System.Drawing.Size(250, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 48);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "To import a new word file, click inport, browse to the xml file and click ok.  Th" +
-    "en return to the test tab and start taking the test as usual.";
             // 
             // Console
             // 

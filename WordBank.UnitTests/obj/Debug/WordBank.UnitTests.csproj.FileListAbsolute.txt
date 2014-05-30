@@ -1,0 +1,16 @@
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\Resources\words.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\WordBank.UnitTests.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\WordBank.UnitTests.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\Moq.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\WordBank.Repository.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\WordBank.Utility.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\WordBank.Repository.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\WordBank.Utility.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\Moq.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\obj\Debug\WordBank.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\obj\Debug\WordBank.UnitTests.Properties.Resources.resources
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\obj\Debug\WordBank.UnitTests.csproj.GenerateResource.Cache
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\obj\Debug\WordBank.UnitTests.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.UnitTests\obj\Debug\WordBank.UnitTests.pdb

@@ -104,6 +104,35 @@
   <ItemGroup>
     <None Include="Resources\replayIcon.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\SampleTests\words_A.xml" />
+    <Content Include="bin\Debug\SampleTests\words_B.xml" />
+    <Content Include="bin\Debug\SampleTests\words_C.xml" />
+    <Content Include="bin\Debug\SampleTests\words_D.xml" />
+    <Content Include="bin\Debug\SampleTests\words_E.xml" />
+    <Content Include="bin\Debug\SampleTests\words_F.xml" />
+    <Content Include="bin\Debug\SampleTests\words_G.xml" />
+    <Content Include="bin\Debug\SampleTests\words_H.xml" />
+    <Content Include="bin\Debug\SampleTests\words_I.xml" />
+    <Content Include="bin\Debug\SampleTests\words_J.xml" />
+    <Content Include="bin\Debug\SampleTests\words_K.xml" />
+    <Content Include="bin\Debug\SampleTests\words_L.xml" />
+    <Content Include="bin\Debug\SampleTests\words_M.xml" />
+    <Content Include="bin\Debug\SampleTests\words_N.xml" />
+    <Content Include="bin\Debug\SampleTests\words_O.xml" />
+    <Content Include="bin\Debug\SampleTests\words_P.xml" />
+    <Content Include="bin\Debug\SampleTests\words_Q.xml" />
+    <Content Include="bin\Debug\SampleTests\words_R.xml" />
+    <Content Include="bin\Debug\SampleTests\words_S.xml" />
+    <Content Include="bin\Debug\SampleTests\words_T.xml" />
+    <Content Include="bin\Debug\SampleTests\words_U.xml" />
+    <Content Include="bin\Debug\SampleTests\words_V.xml" />
+    <Content Include="bin\Debug\SampleTests\words_W.xml" />
+    <Content Include="bin\Debug\SampleTests\words_X.xml" />
+    <Content Include="bin\Debug\SampleTests\words_Y.xml" />
+    <Content Include="bin\Debug\SampleTests\words_Z.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

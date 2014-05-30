@@ -1,0 +1,10 @@
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\Resources\words.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Repository.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Repository.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Utility.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Utility.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.Properties.Resources.resources
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.csproj.GenerateResource.Cache
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.pdb

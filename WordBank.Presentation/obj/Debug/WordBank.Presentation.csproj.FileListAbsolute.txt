@@ -1,0 +1,15 @@
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\Resources\words.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Presentation.exe.config
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Presentation.exe
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Presentation.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Repository.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Utility.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Repository.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\bin\Debug\WordBank.Utility.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.Console.resources
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.Properties.Resources.resources
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.Results.resources
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.csproj.GenerateResource.Cache
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.exe
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Presentation\obj\Debug\WordBank.Presentation.csprojResolveAssemblyReference.cache

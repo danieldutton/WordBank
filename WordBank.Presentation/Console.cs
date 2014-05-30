@@ -86,7 +86,7 @@ namespace WordBank.Presentation
         {
             if (_currentWord != null)
                 _lblQuestionCount.Text = string.Format("{0} of {1}",
-                    0, _wordBank.WordMap.Count);    
+                    1, _wordBank.WordMap.Count);    
         }
 
         private void SubmitAnswer_Click(object sender, EventArgs e)
@@ -127,19 +127,26 @@ namespace WordBank.Presentation
             {
                 Multiselect = false,
                 Filter = "XML files (*.xml)|*.xml",
+                ShowReadOnly = true,
+                InitialDirectory = "SampleTests",
             };
             DialogResult result = openFileDialog1.ShowDialog();
             if (result == DialogResult.OK) // Test result.
             {
                 //read in xmlFile
-                string xml = openFileDialog1.FileName;
-                XDocument doc = XDocument.Load(xml);
-                
-                //check it's well formed
+                try
+                {
+                    string xml = openFileDialog1.FileName;
+                    XDocument doc = XDocument.Load(xml);
 
-                //save it to resources                
-                _wordBank.InitialiseWordBank(doc.ToString());
-                //it is not clearing the first word pronounced
+                    _wordBank.InitialiseWordBank(doc.ToString());
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Corrupt word file.  Please try again");
+                    return;
+                }
+
                 tabControl1.SelectTab(0);
                 ResetQuestionCountLables();
                 PronounceNextWord();
