@@ -18,10 +18,8 @@ namespace WordBank.Presentation
 
             IXDocumentParser xDocParser = new XDocumentParser();
 
-            var rm = ResourceLoader.GetRepositoryResourceManager();
-
-            IWordBank<WordAnswer> wordBank = new XmlWordBank(xDocParser);
-            wordBank.InitialiseWordBank(rm.GetString("words"));
+            IWordBank<Question> wordBank = new XmlWordBank(xDocParser);
+            wordBank.InitialiseWordBank(WordBank.Repository.Properties.Resources.words_default);
             
             var speechSynthesizer = new SpeechSynthesizer
             {
@@ -29,7 +27,7 @@ namespace WordBank.Presentation
                 Rate = -2,
             };
 
-            Application.Run(new Console(wordBank, speechSynthesizer));
+            Application.Run(new TestConsole(wordBank, speechSynthesizer));
         }
     }
 }

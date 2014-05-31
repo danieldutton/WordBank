@@ -5,13 +5,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BDE084DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBank.UnitTests", "WordBank.UnitTests\WordBank.UnitTests.csproj", "{ECE92D96-B746-4D7D-B5A3-28A960087D63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBank.Presentation", "WordBank.Presentation\WordBank.Presentation.csproj", "{A95B6B70-6AD1-41D2-B853-BA05C6173A64}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBank.Repository", "WordBank.Repository\WordBank.Repository.csproj", "{65B97906-15C4-4E55-B023-6940F56285AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBank.IntegrationTests", "WordBank.IntegrationTests\WordBank.IntegrationTests.csproj", "{409CC0B5-7E6F-492A-8A8C-94BD807ABBE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBank.Utility", "WordBank.Utility\WordBank.Utility.csproj", "{F5BEF207-E314-40CB-A46A-C153D7AC13D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordBank.Presentation", "WordBank.Presentation\WordBank.Presentation.csproj", "{A95B6B70-6AD1-41D2-B853-BA05C6173A64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,16 +32,6 @@ Global
 		{ECE92D96-B746-4D7D-B5A3-28A960087D63}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ECE92D96-B746-4D7D-B5A3-28A960087D63}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{ECE92D96-B746-4D7D-B5A3-28A960087D63}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
-		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 		{65B97906-15C4-4E55-B023-6940F56285AA}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
 		{65B97906-15C4-4E55-B023-6940F56285AA}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{65B97906-15C4-4E55-B023-6940F56285AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,6 +62,16 @@ Global
 		{F5BEF207-E314-40CB-A46A-C153D7AC13D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5BEF207-E314-40CB-A46A-C153D7AC13D0}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{F5BEF207-E314-40CB-A46A-C153D7AC13D0}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{A95B6B70-6AD1-41D2-B853-BA05C6173A64}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

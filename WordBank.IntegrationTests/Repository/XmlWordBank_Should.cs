@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using System.Resources;
 using WordBank.Repository;
 using WordBank.Utility;
 
@@ -10,8 +9,6 @@ namespace WordBank.IntegrationTests.Repository
     [TestFixture]
     public class XmlWordBank_Should
     {
-        private ResourceManager _resourceManager;
-
         private string _xmlResource;
 
         private XDocumentParser _xDocumentParser;
@@ -21,8 +18,7 @@ namespace WordBank.IntegrationTests.Repository
         [SetUp]
         public void Init()
         {
-            _resourceManager = Mother.GetRepositoryResourceManager();
-            _xmlResource = _resourceManager.GetString("words_test");
+            _xmlResource = Properties.Resources.words_testFile;
             _xDocumentParser = new XDocumentParser();
             _sut = new XmlWordBank(_xDocumentParser);
         }
@@ -59,10 +55,10 @@ namespace WordBank.IntegrationTests.Repository
         public void InitialiseWordBank_InitPropertyWordQueue_With10Items()
         {
             _sut.InitialiseWordBank(_xmlResource);
-            Queue<WordAnswer> wordQueue = _sut.WordQueue;
+            Queue<Question> wordQueue = _sut.WordQueue;
 
             Assert.AreEqual(10, wordQueue.Count);
-            CollectionAssert.AllItemsAreInstancesOfType(wordQueue, typeof(WordAnswer));
+            CollectionAssert.AllItemsAreInstancesOfType(wordQueue, typeof(Question));
         }
 
         [Test]
@@ -97,7 +93,7 @@ namespace WordBank.IntegrationTests.Repository
         public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FirstWord()
         {
             _sut.InitialiseWordBank(_xmlResource);
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(1, result.Id);
         }
@@ -108,7 +104,7 @@ namespace WordBank.IntegrationTests.Repository
             _sut.InitialiseWordBank(_xmlResource);
 
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(2, result.Id);
         }
@@ -119,7 +115,7 @@ namespace WordBank.IntegrationTests.Repository
             _sut.InitialiseWordBank(_xmlResource);
             _sut.GetWord();
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(3, result.Id);
         }
@@ -131,7 +127,7 @@ namespace WordBank.IntegrationTests.Repository
             _sut.GetWord();
             _sut.GetWord();
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(4, result.Id);
         }
@@ -144,7 +140,7 @@ namespace WordBank.IntegrationTests.Repository
             _sut.GetWord();
             _sut.GetWord();
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(5, result.Id);
         }
@@ -153,7 +149,7 @@ namespace WordBank.IntegrationTests.Repository
         public void GetWord_FireIsEmptyEvent_IfQueueIsEmpty()
         {
             bool wasFired = false;
-            var emptyQueue = new Queue<WordAnswer>();
+            var emptyQueue = new Queue<Question>();
             _sut.IsEmpty += (o, e) => wasFired = true;
 
             _sut.WordQueue = emptyQueue;
@@ -175,7 +171,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer1()
         {
-            var wordAnswer = new WordAnswer(1, "word1", "answer1");
+            var wordAnswer = new Question(1, "word1", "answer1");
 
             _sut.InitialiseWordBank(_xmlResource);
             _sut.SubmitAnswer(wordAnswer);
@@ -187,7 +183,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer2()
         {
-            var wordAnswer = new WordAnswer(1, "word2", "answer2");
+            var wordAnswer = new Question(1, "word2", "answer2");
 
             _sut.InitialiseWordBank(_xmlResource);
             _sut.SubmitAnswer(wordAnswer);
@@ -199,7 +195,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer3()
         {
-            var wordAnswer = new WordAnswer(1, "word3", "answer3");
+            var wordAnswer = new Question(1, "word3", "answer3");
 
             _sut.InitialiseWordBank(_xmlResource);
             _sut.SubmitAnswer(wordAnswer);
@@ -211,7 +207,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer4()
         {
-            var wordAnswer = new WordAnswer(1, "word4", "answer4");
+            var wordAnswer = new Question(1, "word4", "answer4");
 
             _sut.InitialiseWordBank(_xmlResource);
             _sut.SubmitAnswer(wordAnswer);
@@ -223,7 +219,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer5()
         {
-            var wordAnswer = new WordAnswer(1, "word5", "answer5");
+            var wordAnswer = new Question(1, "word5", "answer5");
 
             _sut.InitialiseWordBank(_xmlResource);
             _sut.SubmitAnswer(wordAnswer);
@@ -235,7 +231,6 @@ namespace WordBank.IntegrationTests.Repository
         [TearDown]
         public void TearDown()
         {
-            _resourceManager = null;
             _xmlResource = null;
             _xDocumentParser = null;
             _sut = null;

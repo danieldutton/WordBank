@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using WordBank.Utility;
+using WordBank.Utility.Interfaces;
 
 namespace WordBank.UnitTests.Utility
 {
     [TestFixture]
     public class XmlWordFileBuilder_Should
     {
-        private XmlWordFileBuilder _sut;
+        private IWordFileBuilder _sut;
 
         private List<string> _testWords;
             

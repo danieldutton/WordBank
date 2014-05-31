@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Forms" />
@@ -42,22 +41,22 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Console.cs">
+    <Compile Include="TestConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Console.Designer.cs">
-      <DependentUpon>Console.cs</DependentUpon>
+    <Compile Include="TestConsole.Designer.cs">
+      <DependentUpon>TestConsole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Results.cs">
+    <Compile Include="TestResults.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Results.Designer.cs">
-      <DependentUpon>Results.cs</DependentUpon>
+    <Compile Include="TestResults.Designer.cs">
+      <DependentUpon>TestResults.cs</DependentUpon>
     </Compile>
     <Compile Include="_Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Console.resx">
-      <DependentUpon>Console.cs</DependentUpon>
+    <EmbeddedResource Include="TestConsole.resx">
+      <DependentUpon>TestConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,8 +68,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Results.resx">
-      <DependentUpon>Results.cs</DependentUpon>
+    <EmbeddedResource Include="TestResults.resx">
+      <DependentUpon>TestResults.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -81,9 +80,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WordBank.Repository\WordBank.Repository.csproj">
@@ -104,34 +100,8 @@
   <ItemGroup>
     <None Include="Resources\replayIcon.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="bin\Debug\SampleTests\words_A.xml" />
-    <Content Include="bin\Debug\SampleTests\words_B.xml" />
-    <Content Include="bin\Debug\SampleTests\words_C.xml" />
-    <Content Include="bin\Debug\SampleTests\words_D.xml" />
-    <Content Include="bin\Debug\SampleTests\words_E.xml" />
-    <Content Include="bin\Debug\SampleTests\words_F.xml" />
-    <Content Include="bin\Debug\SampleTests\words_G.xml" />
-    <Content Include="bin\Debug\SampleTests\words_H.xml" />
-    <Content Include="bin\Debug\SampleTests\words_I.xml" />
-    <Content Include="bin\Debug\SampleTests\words_J.xml" />
-    <Content Include="bin\Debug\SampleTests\words_K.xml" />
-    <Content Include="bin\Debug\SampleTests\words_L.xml" />
-    <Content Include="bin\Debug\SampleTests\words_M.xml" />
-    <Content Include="bin\Debug\SampleTests\words_N.xml" />
-    <Content Include="bin\Debug\SampleTests\words_O.xml" />
-    <Content Include="bin\Debug\SampleTests\words_P.xml" />
-    <Content Include="bin\Debug\SampleTests\words_Q.xml" />
-    <Content Include="bin\Debug\SampleTests\words_R.xml" />
-    <Content Include="bin\Debug\SampleTests\words_S.xml" />
-    <Content Include="bin\Debug\SampleTests\words_T.xml" />
-    <Content Include="bin\Debug\SampleTests\words_U.xml" />
-    <Content Include="bin\Debug\SampleTests\words_V.xml" />
-    <Content Include="bin\Debug\SampleTests\words_W.xml" />
-    <Content Include="bin\Debug\SampleTests\words_X.xml" />
-    <Content Include="bin\Debug\SampleTests\words_Y.xml" />
-    <Content Include="bin\Debug\SampleTests\words_Z.xml" />
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

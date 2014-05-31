@@ -37,9 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\XmlParseException.cs" />
+    <Compile Include="Interfaces\IWordFileBuilder.cs" />
     <Compile Include="Interfaces\IXDocumentParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceLoader.cs" />
     <Compile Include="XmlWordFileBuilder.cs" />
     <Compile Include="XDocumentParser.cs" />
   </ItemGroup>

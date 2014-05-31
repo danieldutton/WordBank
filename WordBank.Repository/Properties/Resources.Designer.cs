@@ -22,7 +22,7 @@ namespace WordBank.Repository.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace WordBank.Repository.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WordBank.Repository.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace WordBank.Repository.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,42 +63,28 @@ namespace WordBank.Repository.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;words&gt;
-        ///  &lt;word&gt;accommodate&lt;/word&gt;
+        ///  &lt;word&gt;acceptable&lt;/word&gt;
         ///  &lt;word&gt;accommodation&lt;/word&gt;
         ///  &lt;word&gt;achieve&lt;/word&gt;
+        ///  &lt;word&gt;example&lt;/word&gt;
         ///  &lt;word&gt;aggressive&lt;/word&gt;
-        ///  &lt;word&gt;apparently&lt;/word&gt;
+        ///  &lt;!--&lt;word&gt;apparently&lt;/word&gt;
+        ///  &lt;word&gt;biscuit&lt;/word&gt;
         ///  &lt;word&gt;appearance&lt;/word&gt;
         ///  &lt;word&gt;basically&lt;/word&gt;
         ///  &lt;word&gt;beginning&lt;/word&gt;
         ///  &lt;word&gt;believe&lt;/word&gt;
         ///  &lt;word&gt;business&lt;/word&gt;
-        ///&lt;/words&gt;.
+        ///  &lt;word&gt;colleague&lt;/word&gt;
+        ///  &lt;word&gt;committee&lt;/word&gt;
+        ///  &lt;word&gt;completely&lt;/word&gt;
+        ///  &lt;word&gt;conscious&lt;/word&gt;
+        ///  &lt;word&gt;definitely&lt;/word&gt;
+        ///  &lt;word&gt;disappe [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string words {
+        public static string words_default {
             get {
-                return ResourceManager.GetString("words", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;words&gt;
-        ///  &lt;word id =&quot;1&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;2&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;3&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;4&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;5&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;6&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;7&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;8&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;9&quot;&gt;Embarassed&lt;/word&gt;
-        ///  &lt;word id =&quot;10&quot;&gt;Embarassed&lt;/word&gt;
-        ///&lt;/words&gt;.
-        /// </summary>
-        internal static string words_test {
-            get {
-                return ResourceManager.GetString("words_test", resourceCulture);
+                return ResourceManager.GetString("words_default", resourceCulture);
             }
         }
     }

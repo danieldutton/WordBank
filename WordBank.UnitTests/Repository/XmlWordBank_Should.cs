@@ -92,10 +92,10 @@ namespace WordBank.UnitTests.Repository
                 .Returns(_xDocument);
 
             _sut.InitialiseWordBank(It.IsAny<string>());
-            Queue<WordAnswer> wordQueue = _sut.WordQueue;
+            Queue<Question> wordQueue = _sut.WordQueue;
 
             Assert.AreEqual(10, wordQueue.Count);
-            CollectionAssert.AllItemsAreInstancesOfType(wordQueue, typeof (WordAnswer));
+            CollectionAssert.AllItemsAreInstancesOfType(wordQueue, typeof (Question));
         }
 
         [Test]
@@ -142,7 +142,7 @@ namespace WordBank.UnitTests.Repository
                 .Returns(_xDocument);
 
             _sut.InitialiseWordBank(It.IsAny<string>());
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(1, result.Id);
         }
@@ -156,7 +156,7 @@ namespace WordBank.UnitTests.Repository
             _sut.InitialiseWordBank(It.IsAny<string>());
             
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(2, result.Id);
         }
@@ -170,7 +170,7 @@ namespace WordBank.UnitTests.Repository
             _sut.InitialiseWordBank(It.IsAny<string>());
             _sut.GetWord();
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(3, result.Id);
         }
@@ -185,7 +185,7 @@ namespace WordBank.UnitTests.Repository
             _sut.GetWord();
             _sut.GetWord();
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(4, result.Id);
         }
@@ -201,7 +201,7 @@ namespace WordBank.UnitTests.Repository
             _sut.GetWord();
             _sut.GetWord();
             _sut.GetWord();
-            WordAnswer result = _sut.GetWord();
+            Question result = _sut.GetWord();
 
             Assert.AreEqual(5, result.Id);
         }
@@ -210,7 +210,7 @@ namespace WordBank.UnitTests.Repository
         public void GetWord_FireIsEmptyEvent_IfQueueIsEmpty()
         {
             bool wasFired = false;
-            var emptyQueue = new Queue<WordAnswer>();
+            var emptyQueue = new Queue<Question>();
             _sut.IsEmpty += (o,e) => wasFired = true;
             
             _sut.WordQueue = emptyQueue;
@@ -235,7 +235,7 @@ namespace WordBank.UnitTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer1()
         {
-            var wordAnswer = new WordAnswer(1, "word1", "answer1");
+            var wordAnswer = new Question(1, "word1", "answer1");
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);
 
@@ -249,7 +249,7 @@ namespace WordBank.UnitTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer2()
         {
-            var wordAnswer = new WordAnswer(1, "word2", "answer2");
+            var wordAnswer = new Question(1, "word2", "answer2");
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);
 
@@ -263,7 +263,7 @@ namespace WordBank.UnitTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer3()
         {
-            var wordAnswer = new WordAnswer(1, "word3", "answer3");
+            var wordAnswer = new Question(1, "word3", "answer3");
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);
 
@@ -277,7 +277,7 @@ namespace WordBank.UnitTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer4()
         {
-            var wordAnswer = new WordAnswer(1, "word4", "answer4");
+            var wordAnswer = new Question(1, "word4", "answer4");
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);
 
@@ -291,7 +291,7 @@ namespace WordBank.UnitTests.Repository
         [Test]
         public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer5()
         {
-            var wordAnswer = new WordAnswer(1, "word5", "answer5");
+            var wordAnswer = new Question(1, "word5", "answer5");
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);
 

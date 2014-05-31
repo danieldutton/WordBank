@@ -14,6 +14,6 @@ namespace WordBank.Repository.Interfaces
 
         TValue GetWord();
 
-        void SubmitAnswer(TValue wordAnswer);
+        void SubmitAnswer(TValue question);
     }
 }

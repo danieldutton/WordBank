@@ -8,7 +8,7 @@ using WordBank.Utility.Interfaces;
 
 namespace WordBank.Repository
 {
-    public class XmlWordBank : IWordBank<WordAnswer>
+    public class XmlWordBank : IWordBank<Question>
     {
         public event EventHandler<WordBankEmptyEventArgs> IsEmpty;
 
@@ -16,7 +16,7 @@ namespace WordBank.Repository
 
         public Dictionary<string, string> WordMap { get; set; }
 
-        public Queue<WordAnswer> WordQueue { get;  set; }
+        public Queue<Question> WordQueue { get;  set; }
 
 
         public XmlWordBank(IXDocumentParser xDocParser)
@@ -53,33 +53,33 @@ namespace WordBank.Repository
 
         private void InitialiseWordQueue()
         {
-            IEnumerable<WordAnswer> words = WordMap
+            IEnumerable<Question> words = WordMap
                 .Keys
-                .Select((word, i) => new WordAnswer
+                .Select((word, i) => new Question
                     (i + 1, word, string.Empty));
             
-            WordQueue = new Queue<WordAnswer>(words);    
+            WordQueue = new Queue<Question>(words);    
         }
 
-        public WordAnswer GetWord()
+        public Question GetWord()
         {
-            WordAnswer wordAnswer = null;
+            Question question = null;
 
             try
             {
-                wordAnswer = WordQueue.Dequeue();
+                question = WordQueue.Dequeue();
             }
             catch (InvalidOperationException)
             {
                 OnIsEmpty(new WordBankEmptyEventArgs(WordMap));
             }
-            return wordAnswer;
+            return question;
         }
 
-        public void SubmitAnswer(WordAnswer wordAnswer)
+        public void SubmitAnswer(Question question)
         {
-            if(wordAnswer != null && wordAnswer.Answer != null)
-                WordMap[wordAnswer.Word] = wordAnswer.Answer;
+            if(question != null && question.Answer != null)
+                WordMap[question.Word] = question.Answer;
         }
 
         protected virtual void OnIsEmpty(WordBankEmptyEventArgs e)

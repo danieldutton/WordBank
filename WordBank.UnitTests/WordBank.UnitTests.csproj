@@ -51,7 +51,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\XmlWordBank_Should.cs" />
-    <Compile Include="Repository\WordAnswer_Should.cs" />
+    <Compile Include="Repository\Question_Should.cs" />
     <Compile Include="Utility\XmlWordFileBuilder_Should.cs" />
   </ItemGroup>
   <ItemGroup>

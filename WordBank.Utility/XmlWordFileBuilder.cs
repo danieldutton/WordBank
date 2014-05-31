@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
+using WordBank.Utility.Interfaces;
 
 namespace WordBank.Utility
 {
-    public class XmlWordFileBuilder
+    public class XmlWordFileBuilder : IWordFileBuilder
     {
         public string XmlString { get; private set; }
 
