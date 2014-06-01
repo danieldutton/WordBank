@@ -45,16 +45,5 @@ namespace WordBank.UnitTests
 
             return idList;
         }
-
-        public static string ExpectedXmlString()
-        {
-            const string value =
-                "<words>\r\n  <word>word1</word>\r\n  <word>word2</word>\r\n  " +
-                "<word>word3</word>\r\n  <word>word4</word>\r\n  <word>word5</word>\r\n  " +
-                "<word>word6</word>\r\n  <word>word7</word>\r\n  <word>word8</word>\r\n  " +
-                "<word>word9</word>\r\n  <word>word10</word>\r\n</words>";
-
-            return value;
-        }
     }
 }

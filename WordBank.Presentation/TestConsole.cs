@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using WordBank.Presentation.ExtMethods;
 using WordBank.Repository;
 using WordBank.Repository.EventArg;
 using WordBank.Repository.Interfaces;
@@ -29,9 +31,9 @@ namespace WordBank.Presentation
 
             InitializeComponent();
             DisableIfNoAudio();
-            PronounceNextWord();
-            GiveFocusToAnswerTextBox();
-            UpdateQuestionCountLabels();
+            PronounceWord();
+            FocusToAnswerTextBox();
+            UpdateQuestionCountLabel();
             
             _wordBank.IsEmpty += OnWordBankEmpty;
         }
@@ -41,12 +43,11 @@ namespace WordBank.Presentation
             if (waveOutGetNumDevs() == 0)
             {
                 MessageBox.Show(Properties.Resources.NoAudioWarning);
-
                 Enabled = false;
             }
         }
 
-        private void PronounceNextWord()
+        private void PronounceWord()
         {
             _currentWord = _wordBank.GetWord();
 
@@ -56,10 +57,25 @@ namespace WordBank.Presentation
                 _speechSynthesizer.SpeakAsync(_currentWord.Word);
         }
 
-        private void GiveFocusToAnswerTextBox()
+        private void FocusToAnswerTextBox()
         {
             _txtBoxAnswer.Clear();
             _txtBoxAnswer.Focus();
+        }
+
+        private void UpdateQuestionCountLabel()
+        {
+            if (_currentWord != null)
+                _lblQuestionCount.Text = string.Format("{0} of {1}",
+                    _currentWord.Id, _wordBank.WordMap.Count);
+        }
+
+        //dry principleviolated
+        private void ResetQuestionCountLabel()
+        {
+            if (_currentWord != null)
+                _lblQuestionCount.Text = string.Format("{0} of {1}",
+                    1, _wordBank.WordMap.Count);
         }
 
         private void OnWordBankEmpty(object sender, WordBankEmptyEventArgs e)
@@ -69,43 +85,27 @@ namespace WordBank.Presentation
 
         private void DisplayTestResults()
         {
-            var resultsForm = new TestResults(_wordBank.WordMap);
+            List<Question> questions = _wordBank.WordMap.ToQuestionList();
+
+            var resultsForm = new TestResults(questions);
 
             resultsForm.ShowDialog();
         }
 
-        private void UpdateQuestionCountLabels()
-        {
-            if (_currentWord != null)
-                _lblQuestionCount.Text = string.Format("{0} of {1}",
-                    _currentWord.Id, _wordBank.WordMap.Count); 
-        }
-
-        //dry princp
-        private void ResetQuestionCountLables()
-        {
-            if (_currentWord != null)
-                _lblQuestionCount.Text = string.Format("{0} of {1}",
-                    1, _wordBank.WordMap.Count);    
-        }
-
         private void SubmitAnswer_Click(object sender, EventArgs e)
         {
-            if (_speechSynthesizer.State != SynthesizerState.Speaking)
-            {
-                SubmitAnswer();
-                GiveFocusToAnswerTextBox();
-                PronounceNextWord();
-                UpdateQuestionCountLabels(); 
-            }
+            if (_speechSynthesizer.State == SynthesizerState.Speaking) 
+                return;
+            
+            SubmitAnswer();
+            FocusToAnswerTextBox();
+            PronounceWord();
+            UpdateQuestionCountLabel();
         }
 
         private void SubmitAnswer()
         {
             string answer = _txtBoxAnswer.Text;
-
-            if (answer == string.Empty)
-                answer = "No Answer Given";
 
             _currentWord.Answer = answer;
 
@@ -116,7 +116,7 @@ namespace WordBank.Presentation
         {
             _speechSynthesizer.SpeakAsync(_currentWord.Word);
 
-            GiveFocusToAnswerTextBox();
+            FocusToAnswerTextBox();
         }
 
         private void EndTestEarly_Click(object sender, EventArgs e)
@@ -126,44 +126,56 @@ namespace WordBank.Presentation
 
         private void ImportWordFile_Click(object sender, EventArgs e)
         {
-            var openFileDialog1 = new OpenFileDialog
+            OpenFileDialog fileDialog = GetOpenFileDialog();
+            
+            DialogResult result = fileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string filePath = fileDialog.FileName;
+                ImportFile(filePath);
+            }                
+        }
+
+        private OpenFileDialog GetOpenFileDialog()
+        {
+            var fileDialog = new OpenFileDialog
             {
                 Multiselect = false,
-                Filter = "XML files (*.xml)|*.xml",
+                Filter = Properties.Resources.XmlFileFilter,
                 ShowReadOnly = true,
-                //InitialDirectory = "SampleTests",
-                RestoreDirectory = false
+                InitialDirectory = "TestSamples",
             };
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
+            return fileDialog;
+        }
+
+        private void ImportFile(string xml)
+        {
+            try
             {
-                //read in xmlFile
-                try
-                {
-                    string xml = openFileDialog1.FileName;
-                    XDocument doc = XDocument.Load(xml);
+                XDocument doc = XDocument.Load(xml);
 
-                    _wordBank.InitialiseWordBank(doc.ToString());
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Corrupt word file.  Please try again");
-                    return;
-                }
-
-                _tabControl.SelectTab(0);
-                ResetQuestionCountLables();
-                PronounceNextWord();
+                _wordBank.InitialiseWordBank(doc.ToString());
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Corrupt word file.  Please try again");
+                return;
+            }
+
+            _tabControl.SelectTab(0);
+
+            ResetQuestionCountLabel();
+            PronounceWord();
         }
 
         private void ResetToDefaultWordXmlFile(object sender, EventArgs e)
         {
             _wordBank.InitialiseWordBank(Repository.Properties.Resources.words_default);
-
+            
+            ResetQuestionCountLabel();
+            PronounceWord();
             _tabControl.SelectTab(0);
-            ResetQuestionCountLables();
-            PronounceNextWord();
         }
     }
 }

@@ -1,19 +1,29 @@
-﻿namespace WordBank.Repository
+﻿using System;
+
+namespace WordBank.Repository
 {    
     public sealed class Question
     {
-        public int Id { get; private set; }
+        public int Id { get; private  set; }
 
-        public string Word { get; private set; }
+        public string Word { get; private  set; }
 
         public string Answer { get; set; }
 
+        public bool IsCorrect
+        {
+            get
+            {
+                return Word.Equals(Answer,
+                StringComparison.InvariantCultureIgnoreCase);
+            }
+        }
 
         public Question(int id, string word, string answer)
         {
             Id = id;
             Word = word;
-            Answer = answer;
+            Answer = answer == string.Empty ? "Skipped" : answer;
         }
 
         public override string ToString()

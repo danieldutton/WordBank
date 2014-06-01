@@ -1,4 +1,5 @@
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Utility\bin\Debug\WordBank.Utility.dll
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Utility\bin\Debug\WordBank.Utility.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Utility\obj\Debug\WordBank.Utility.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Utility\obj\Debug\WordBank.Utility.dll
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Utility\obj\Debug\WordBank.Utility.pdb

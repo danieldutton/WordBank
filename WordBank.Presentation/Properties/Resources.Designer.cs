@@ -98,5 +98,14 @@ namespace WordBank.Presentation.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XML files (*.xml)|*.xml.
+        /// </summary>
+        internal static string XmlFileFilter {
+            get {
+                return ResourceManager.GetString("XmlFileFilter", resourceCulture);
+            }
+        }
     }
 }

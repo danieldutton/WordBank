@@ -1,34 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
+using WordBank.Repository;
 
 namespace WordBank.Presentation
 {
     public partial class TestResults : Form
     {
-        private readonly Dictionary<string, string> _wordMap; 
+        private readonly IEnumerable<Question> _questions;  
 
         private int _score;
 
         private int _newLineYPos;
 
 
-        public TestResults(Dictionary<string, string> wordMap)
+        public TestResults(IEnumerable<Question> questions )
         {
-            _wordMap = wordMap;
+            _questions = questions;
 
             InitializeComponent();
-            PrintResults();
+            DisplayTestResults();
         }
 
-        private void PrintResults()
+        private void DisplayTestResults()
         {
-            foreach (KeyValuePair<string, string> entry in _wordMap)
+            foreach (var question in _questions)
             {
-                DisplayTestWordAndAnswer(entry);
+                DisplayTestWordAndAnswer(question);
 
-                if (AnswerCorrect(entry))
+                if (question.IsCorrect)
                     MarkAsCorrect();
                 else
                     MarkAsIncorrect();
@@ -38,28 +40,22 @@ namespace WordBank.Presentation
             DisplayFinalScore();
         }
 
-        private void DisplayTestWordAndAnswer(KeyValuePair<string, string> entry)
+        private void DisplayTestWordAndAnswer(Question question)
         {
             var lblWord = new Label
             {
-                Text = entry.Key,
+                Text = question.Word,
                 Location = new Point(5, _newLineYPos),
             };
 
             var lblAnswer = new Label
             {
-                Text = entry.Value,
+                Text = question.Answer,
                 Location = new Point(170, _newLineYPos),
             };
 
             _panelResults.Controls.Add(lblWord);
             _panelResults.Controls.Add(lblAnswer);
-        }
-
-        private bool AnswerCorrect(KeyValuePair<string, string> entry)
-        {
-            return entry.Key.Equals(entry.Value, 
-                StringComparison.InvariantCultureIgnoreCase);
         }
 
         private void MarkAsCorrect()
@@ -94,7 +90,7 @@ namespace WordBank.Presentation
         private void DisplayFinalScore()
         {
             _lblScore.Text = string.Format("You Scored {0} out of {1}",
-                _score, _wordMap.Count);
+                _score, _questions.Count());
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
