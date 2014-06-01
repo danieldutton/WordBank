@@ -25,7 +25,7 @@ namespace WordBank.UnitTests
             return xDoc;
         }
 
-        public static List<string> ExpectedWordKeySequence()
+        public static List<string> ExpectedWordSequence()
         {
             var keyList = new List<string>
             {

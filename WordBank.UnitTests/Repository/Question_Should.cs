@@ -55,17 +55,17 @@ namespace WordBank.UnitTests.Repository
         }
 
         [Test]
-        public void Constructor_SetAnswerValueTo_Skipped_IfAnswerParamIsEmpty()
+        public void Constructor_SetAnswerValueTo_AnswerNotGiven_IfAnswerParamIsEmpty()
         {
             var question = new Question(1, "Test", string.Empty);
 
-            Assert.AreEqual("Skipped", question.Answer);
+            Assert.AreEqual("Answer not given", question.Answer);
         }
 
         [Test]
         public void ToString_ReturnTheCorrectStringValue()
         {
-            var sut = new Question(id: 1, word: "Word", answer: "Answer");
+            var sut = new Question(1, "Word", "Answer");
             
             const string expected = "[Question] Id:1 Word:Word Answer:Answer";
             string actual = sut.ToString();

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtMethods\Extensions.cs" />
+    <Compile Include="ExtMethods\WordMapExtensions.cs" />
     <Compile Include="TestConsole.cs">
       <SubType>Form</SubType>
     </Compile>

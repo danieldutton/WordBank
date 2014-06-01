@@ -23,7 +23,7 @@ namespace WordBank.Repository
         {
             Id = id;
             Word = word;
-            Answer = answer == string.Empty ? "Skipped" : answer;
+            Answer = answer == string.Empty ? "Answer not given" : answer;
         }
 
         public override string ToString()

@@ -9,7 +9,7 @@ namespace WordBank.IntegrationTests.Repository
     [TestFixture]
     public class XmlWordBank_Should
     {
-        private string _xmlResource;
+        private string _xmlString;
 
         private XDocumentParser _xDocumentParser;
 
@@ -18,7 +18,7 @@ namespace WordBank.IntegrationTests.Repository
         [SetUp]
         public void Init()
         {
-            _xmlResource = Properties.Resources.words_testFile;
+            _xmlString = Properties.Resources.words_testFile;
             _xDocumentParser = new XDocumentParser();
             _sut = new XmlWordBank(_xDocumentParser);
         }
@@ -27,25 +27,25 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void InitialiseWordBank_InitPropertyWordMap_With10Items()
         {
-            _sut.InitialiseWordBank(_xmlResource);
-            Dictionary<string, string> wMap = _sut.WordMap;
+            _sut.InitialiseWordBank(_xmlString);
+            Dictionary<string, string> wordMap = _sut.WordMap;
 
-            Assert.AreEqual(10, wMap.Count);
+            Assert.AreEqual(10, wordMap.Count);
         }
 
         [Test]
-        public void InitialiseWordBank_InitPropertyWordMap_WithKeySequence()
+        public void InitialiseWordBank_InitPropertyWordMap_WithCorrectKeys()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             List<string> keyList = _sut.WordMap.Select(x => x.Key).ToList();
 
-            Assert.AreEqual(Mother.ExpectedWordKeySequence(), keyList);
+            Assert.AreEqual(Mother.ExpectedWordSequence(), keyList);
         }
 
         [Test]
-        public void InitialiseWordBank_InitPropertyWordMap_WithCorrectValueSequence()
+        public void InitialiseWordBank_InitPropertyWordMap_WithCorrectValues()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             List<string> valueList = _sut.WordMap.Select(x => x.Value).ToList();
 
             Assert.IsTrue(valueList.TrueForAll(y => y.Equals(string.Empty)));
@@ -54,7 +54,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void InitialiseWordBank_InitPropertyWordQueue_With10Items()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             Queue<Question> wordQueue = _sut.WordQueue;
 
             Assert.AreEqual(10, wordQueue.Count);
@@ -64,96 +64,109 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectIdSequence()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             List<int> idList = _sut.WordQueue.Select(x => x.Id).ToList();
 
             Assert.AreEqual(Mother.ExpectedIdSequence(), idList);
         }
 
         [Test]
-        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectTextSequence()
+        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectWordSequence()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             List<string> wordList = _sut.WordQueue.Select(x => x.Word).ToList();
 
-            Assert.AreEqual(Mother.ExpectedWordKeySequence(), wordList);
+            Assert.AreEqual(Mother.ExpectedWordSequence(), wordList);
         }
 
         [Test]
         public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectAnswerSequence()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             List<string> answerList = _sut.WordQueue.Select(x => x.Answer).ToList();
 
-            Assert.IsTrue(answerList.All(x => x == string.Empty));
+            Assert.IsTrue(answerList.All(x => x == "Answer not given"));
         }
 
         //sample of 5
         [Test]
-        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FirstWord()
+        public void GetQuestion_ReturnOneQuestion_WithCorrectlyInitialisedProperties_1stWord()
         {
-            _sut.InitialiseWordBank(_xmlResource);
-            Question result = _sut.GetWord();
+            _sut.InitialiseWordBank(_xmlString);
+            Question result = _sut.GetQuestion();
 
             Assert.AreEqual(1, result.Id);
+            Assert.AreEqual("word1", result.Word);
+            Assert.AreEqual("Answer not given", result.Answer);
         }
 
         [Test]
-        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_SecondWord()
+        public void GetQuestion_ReturnOneQuestion_WithCorrectlyInitialisedProperties_2ndWord()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
 
-            _sut.GetWord();
-            Question result = _sut.GetWord();
+            _sut.GetQuestion();
+            Question result = _sut.GetQuestion();
 
             Assert.AreEqual(2, result.Id);
+            Assert.AreEqual("word2", result.Word);
+            Assert.AreEqual("Answer not given", result.Answer);
         }
 
         [Test]
-        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_ThirdWord()
+        public void GetQuestion_ReturnOneQuestion_WithCorrectlyInitialisedProperties_3rdWord()
         {
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.GetWord();
-            _sut.GetWord();
-            Question result = _sut.GetWord();
+            _sut.InitialiseWordBank(_xmlString);
+            
+            _sut.GetQuestion();
+            _sut.GetQuestion();
+            Question result = _sut.GetQuestion();
 
             Assert.AreEqual(3, result.Id);
+            Assert.AreEqual("word3", result.Word);
+            Assert.AreEqual("Answer not given", result.Answer);
         }
 
         [Test]
-        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FourthWord()
+        public void GetQuestion_ReturnOneQuestion_WithCorrectlyInitialisedProperties_4thWord()
         {
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.GetWord();
-            _sut.GetWord();
-            _sut.GetWord();
-            Question result = _sut.GetWord();
+            _sut.InitialiseWordBank(_xmlString);
+            
+            _sut.GetQuestion();
+            _sut.GetQuestion();
+            _sut.GetQuestion();
+            Question result = _sut.GetQuestion();
 
             Assert.AreEqual(4, result.Id);
+            Assert.AreEqual("word4", result.Word);
+            Assert.AreEqual("Answer not given", result.Answer);
         }
 
         [Test]
-        public void GetWord_ReturnOneWordAnswer_WithCorrectIdFor_FifthWord()
+        public void GetQuestion_ReturnOneQuestion_WithCorrectlyInitialisedProperties_5thWord()
         {
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.GetWord();
-            _sut.GetWord();
-            _sut.GetWord();
-            _sut.GetWord();
-            Question result = _sut.GetWord();
+            _sut.InitialiseWordBank(_xmlString);
+            
+            _sut.GetQuestion();
+            _sut.GetQuestion();
+            _sut.GetQuestion();
+            _sut.GetQuestion();
+            Question result = _sut.GetQuestion();
 
             Assert.AreEqual(5, result.Id);
+            Assert.AreEqual("word5", result.Word);
+            Assert.AreEqual("Answer not given", result.Answer);
         }
 
         [Test]
-        public void GetWord_FireIsEmptyEvent_IfQueueIsEmpty()
+        public void GetQuestion_FireIsEmptyEvent_IfQueueIsEmpty()
         {
             bool wasFired = false;
             var emptyQueue = new Queue<Question>();
             _sut.IsEmpty += (o, e) => wasFired = true;
 
             _sut.WordQueue = emptyQueue;
-            _sut.GetWord();
+            _sut.GetQuestion();
 
             Assert.IsTrue(wasFired);
         }
@@ -161,7 +174,7 @@ namespace WordBank.IntegrationTests.Repository
         [Test]
         public void SubmitAnswer_FailtToUpdateWordMap_IfWordAnswerIsNull()
         {
-            _sut.InitialiseWordBank(_xmlResource);
+            _sut.InitialiseWordBank(_xmlString);
             _sut.SubmitAnswer(null);
 
             Assert.AreEqual(10, _sut.WordMap.Count);
@@ -169,69 +182,69 @@ namespace WordBank.IntegrationTests.Repository
 
         //sample of 5
         [Test]
-        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer1()
+        public void SubmitAnswer_UpdateWordMapValue_ForWord1()
         {
-            var wordAnswer = new Question(1, "word1", "answer1");
+            var question = new Question(1, "word1", "answer1");
 
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.SubmitAnswer(wordAnswer);
-            Dictionary<string, string> wMap = _sut.WordMap;
+            _sut.InitialiseWordBank(_xmlString);
+            _sut.SubmitAnswer(question);
+            Dictionary<string, string> wordMap = _sut.WordMap;
 
-            Assert.AreEqual("answer1", wMap["word1"]);
+            Assert.AreEqual("answer1", wordMap["word1"]);
         }
 
         [Test]
-        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer2()
+        public void SubmitAnswer_UpdateWordMapValue_ForWord2()
         {
-            var wordAnswer = new Question(1, "word2", "answer2");
+            var question = new Question(1, "word2", "answer2");
 
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.SubmitAnswer(wordAnswer);
-            Dictionary<string, string> wMap = _sut.WordMap;
+            _sut.InitialiseWordBank(_xmlString);
+            _sut.SubmitAnswer(question);
+            Dictionary<string, string> wordMap = _sut.WordMap;
 
-            Assert.AreEqual("answer2", wMap["word2"]);
+            Assert.AreEqual("answer2", wordMap["word2"]);
         }
 
         [Test]
-        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer3()
+        public void SubmitAnswer_UpdateWordMapValue_ForWord3()
         {
-            var wordAnswer = new Question(1, "word3", "answer3");
+            var question = new Question(1, "word3", "answer3");
 
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.SubmitAnswer(wordAnswer);
-            Dictionary<string, string> wMap = _sut.WordMap;
+            _sut.InitialiseWordBank(_xmlString);
+            _sut.SubmitAnswer(question);
+            Dictionary<string, string> wordMap = _sut.WordMap;
 
-            Assert.AreEqual("answer3", wMap["word3"]);
+            Assert.AreEqual("answer3", wordMap["word3"]);
         }
 
         [Test]
-        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer4()
+        public void SubmitAnswer_UpdateWordMapValue_ForWord4()
         {
-            var wordAnswer = new Question(1, "word4", "answer4");
+            var question = new Question(1, "word4", "answer4");
 
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.SubmitAnswer(wordAnswer);
-            Dictionary<string, string> wMap = _sut.WordMap;
+            _sut.InitialiseWordBank(_xmlString);
+            _sut.SubmitAnswer(question);
+            Dictionary<string, string> wordMap = _sut.WordMap;
 
-            Assert.AreEqual("answer4", wMap["word4"]);
+            Assert.AreEqual("answer4", wordMap["word4"]);
         }
 
         [Test]
-        public void SubmitAnswer_UpdateWordMapAnswer_ForWordAnswer5()
+        public void SubmitAnswer_UpdateWordMapValue_ForWord5()
         {
-            var wordAnswer = new Question(1, "word5", "answer5");
+            var question = new Question(1, "word5", "answer5");
 
-            _sut.InitialiseWordBank(_xmlResource);
-            _sut.SubmitAnswer(wordAnswer);
-            Dictionary<string, string> wMap = _sut.WordMap;
+            _sut.InitialiseWordBank(_xmlString);
+            _sut.SubmitAnswer(question);
+            Dictionary<string, string> wordMap = _sut.WordMap;
 
-            Assert.AreEqual("answer5", wMap["word5"]);
+            Assert.AreEqual("answer5", wordMap["word5"]);
         }
 
         [TearDown]
         public void TearDown()
         {
-            _xmlResource = null;
+            _xmlString = null;
             _xDocumentParser = null;
             _sut = null;
         }

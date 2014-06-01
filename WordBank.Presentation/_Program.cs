@@ -19,7 +19,7 @@ namespace WordBank.Presentation
             IXDocumentParser xDocParser = new XDocumentParser();
 
             IWordBank<Question> wordBank = new XmlWordBank(xDocParser);
-            wordBank.InitialiseWordBank(Repository.Properties.Resources.words_default);
+            wordBank.InitialiseWordBank(Repository.Properties.Resources.wordsDefault);
             
             var speechSynthesizer = new SpeechSynthesizer
             {

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <words>
-  <word id ="1">Word1</word>
-  <word id ="2">Word2</word>
-  <word id ="3">Word3</word>
-  <word id ="4">Word4</word>
-  <word id ="5">Word5</word>
-  <word id ="6">Word6</word>
-  <word id ="7">Word7</word>
-  <word id ="8">Word8</word>
-  <word id ="9">Word9</word>
-  <word id ="10">Word9</word>
+  <word>perseverance</word>
+  <word>personnel</word>
+  <word>possession</word>
+  <word>precede</word>
+  <word>principal</word>
+  <word>principle</word>
+  <word>privilege</word>
+  <word>pronunciation</word>
+  <word>publicly</word>
 </words>

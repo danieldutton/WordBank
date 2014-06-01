@@ -2,7 +2,7 @@
 
 namespace WordBank.Utility.Exceptions
 {
-    public class XmlParseException : Exception
+    public sealed class XmlParseException : Exception
     {
         public XmlParseException()
         {            

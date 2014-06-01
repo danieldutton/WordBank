@@ -4,7 +4,7 @@ namespace WordBank.IntegrationTests
 {
     public static class Mother
     {
-        public static List<string> ExpectedWordKeySequence()
+        public static List<string> ExpectedWordSequence()
         {
             var wordList = new List<string>
             {

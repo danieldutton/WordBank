@@ -61,7 +61,7 @@ namespace WordBank.Repository
             WordQueue = new Queue<Question>(words);    
         }
 
-        public Question GetWord()
+        public Question GetQuestion()
         {
             Question question = null;
 

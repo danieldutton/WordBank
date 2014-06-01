@@ -1,10 +1,3 @@
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Repository.dll
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Repository.pdb
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Utility.dll
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Utility.pdb
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.csprojResolveAssemblyReference.cache
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.dll
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.pdb
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_A.xml
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_B.xml
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_C.xml
@@ -31,6 +24,13 @@ C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_X.xml
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_Y.xml
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_Z.xml
-C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\words_default.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\TestSamples\wordsDefault.xml
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Repository.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Repository.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Utility.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\bin\Debug\WordBank.Utility.pdb
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.Properties.Resources.resources
 C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.csproj.GenerateResource.Cache
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.dll
+C:\Users\Dan\Documents\GitHub\WordBank\WordBank.Repository\obj\Debug\WordBank.Repository.pdb

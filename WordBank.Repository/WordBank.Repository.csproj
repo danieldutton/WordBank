@@ -48,13 +48,10 @@
     <Compile Include="XmlWordBank.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestSamples\words_default.xml">
+    <None Include="TestSamples\wordsDefault.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TestSamples\words_testFile.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WordBank.Utility\WordBank.Utility.csproj">

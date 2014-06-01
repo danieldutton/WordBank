@@ -49,7 +49,7 @@ namespace WordBank.Presentation
 
         private void PronounceWord()
         {
-            _currentWord = _wordBank.GetWord();
+            _currentWord = _wordBank.GetQuestion();
 
             if (_currentWord == null)
                 return;
@@ -171,11 +171,12 @@ namespace WordBank.Presentation
 
         private void ResetToDefaultWordXmlFile(object sender, EventArgs e)
         {
-            _wordBank.InitialiseWordBank(Repository.Properties.Resources.words_default);
-            
-            ResetQuestionCountLabel();
-            PronounceWord();
+            _wordBank.InitialiseWordBank(Repository.Properties.Resources.wordsDefault);
+
             _tabControl.SelectTab(0);
+
+            ResetQuestionCountLabel();
+            PronounceWord();           
         }
     }
 }

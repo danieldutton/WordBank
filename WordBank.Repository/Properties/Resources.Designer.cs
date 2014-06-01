@@ -63,28 +63,18 @@ namespace WordBank.Repository.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;words&gt;
-        ///  &lt;word&gt;acceptable&lt;/word&gt;
-        ///  &lt;word&gt;accommodation&lt;/word&gt;
-        ///  &lt;word&gt;achieve&lt;/word&gt;
-        ///  &lt;word&gt;example&lt;/word&gt;
-        ///  &lt;word&gt;aggressive&lt;/word&gt;
-        ///  &lt;!--&lt;word&gt;apparently&lt;/word&gt;
-        ///  &lt;word&gt;biscuit&lt;/word&gt;
-        ///  &lt;word&gt;appearance&lt;/word&gt;
-        ///  &lt;word&gt;basically&lt;/word&gt;
-        ///  &lt;word&gt;beginning&lt;/word&gt;
-        ///  &lt;word&gt;believe&lt;/word&gt;
-        ///  &lt;word&gt;business&lt;/word&gt;
-        ///  &lt;word&gt;colleague&lt;/word&gt;
-        ///  &lt;word&gt;committee&lt;/word&gt;
-        ///  &lt;word&gt;completely&lt;/word&gt;
-        ///  &lt;word&gt;conscious&lt;/word&gt;
-        ///  &lt;word&gt;definitely&lt;/word&gt;
-        ///  &lt;word&gt;disappe [rest of string was truncated]&quot;;.
+        ///  &lt;word&gt;embarrass&lt;/word&gt;
+        ///  &lt;word&gt;embarrassment&lt;/word&gt;
+        ///  &lt;word&gt;equipment&lt;/word&gt;
+        ///  &lt;word&gt;exhilarate&lt;/word&gt;
+        ///  &lt;word&gt;exceed&lt;/word&gt;
+        ///  &lt;word&gt;existence&lt;/word&gt;
+        ///  &lt;word&gt;experience&lt;/word&gt;
+        ///&lt;/words&gt;.
         /// </summary>
-        public static string words_default {
+        public static string wordsDefault {
             get {
-                return ResourceManager.GetString("words_default", resourceCulture);
+                return ResourceManager.GetString("wordsDefault", resourceCulture);
             }
         }
     }

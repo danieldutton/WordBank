@@ -16,7 +16,7 @@ namespace WordBank.Presentation
         private int _newLineYPos;
 
 
-        public TestResults(IEnumerable<Question> questions )
+        public TestResults(IEnumerable<Question> questions)
         {
             _questions = questions;
 
