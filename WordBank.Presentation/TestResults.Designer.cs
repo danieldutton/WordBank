@@ -44,8 +44,9 @@
             // 
             this._panelResults.AutoScroll = true;
             this._panelResults.Location = new System.Drawing.Point(13, 40);
+            this._panelResults.MaximumSize = new System.Drawing.Size(377, 436);
             this._panelResults.Name = "_panelResults";
-            this._panelResults.Size = new System.Drawing.Size(360, 436);
+            this._panelResults.Size = new System.Drawing.Size(377, 436);
             this._panelResults.TabIndex = 0;
             // 
             // _panelStats
@@ -56,7 +57,7 @@
             this._panelStats.Controls.Add(this._lblWords);
             this._panelStats.Location = new System.Drawing.Point(13, 6);
             this._panelStats.Name = "_panelStats";
-            this._panelStats.Size = new System.Drawing.Size(360, 28);
+            this._panelStats.Size = new System.Drawing.Size(377, 28);
             this._panelStats.TabIndex = 1;
             // 
             // _lblResults
@@ -65,9 +66,9 @@
             this._lblResults.ForeColor = System.Drawing.Color.White;
             this._lblResults.Location = new System.Drawing.Point(312, 7);
             this._lblResults.Name = "_lblResults";
-            this._lblResults.Size = new System.Drawing.Size(42, 13);
+            this._lblResults.Size = new System.Drawing.Size(37, 13);
             this._lblResults.TabIndex = 2;
-            this._lblResults.Text = "TestResults";
+            this._lblResults.Text = "Result";
             // 
             // _lblAnswers
             // 
@@ -91,7 +92,7 @@
             // 
             // _btnTryAgain
             // 
-            this._btnTryAgain.Location = new System.Drawing.Point(217, 482);
+            this._btnTryAgain.Location = new System.Drawing.Point(234, 481);
             this._btnTryAgain.Name = "_btnTryAgain";
             this._btnTryAgain.Size = new System.Drawing.Size(75, 23);
             this._btnTryAgain.TabIndex = 2;
@@ -101,7 +102,7 @@
             // 
             // _btnExit
             // 
-            this._btnExit.Location = new System.Drawing.Point(298, 482);
+            this._btnExit.Location = new System.Drawing.Point(315, 481);
             this._btnExit.Name = "_btnExit";
             this._btnExit.Size = new System.Drawing.Size(75, 23);
             this._btnExit.TabIndex = 3;
@@ -124,14 +125,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(383, 509);
+            this.ClientSize = new System.Drawing.Size(402, 509);
             this.Controls.Add(this._lblScore);
             this.Controls.Add(this._btnExit);
             this.Controls.Add(this._btnTryAgain);
             this.Controls.Add(this._panelStats);
             this.Controls.Add(this._panelResults);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(399, 547);
+            this.KeyPreview = true;
+            this.MaximumSize = new System.Drawing.Size(418, 547);
             this.MinimumSize = new System.Drawing.Size(399, 547);
             this.Name = "TestResults";
             this.Text = "Test TestResults";

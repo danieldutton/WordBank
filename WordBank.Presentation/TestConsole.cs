@@ -70,7 +70,7 @@ namespace WordBank.Presentation
                     _currentWord.Id, _wordBank.WordMap.Count);
         }
 
-        //dry principleviolated
+        //dry principle violated
         private void ResetQuestionCountLabel()
         {
             if (_currentWord != null)
@@ -85,10 +85,11 @@ namespace WordBank.Presentation
 
         private void DisplayTestResults()
         {
+            _speechSynthesizer.Dispose();
+            
             List<Question> questions = _wordBank.WordMap.ToQuestionList();
 
             var resultsForm = new TestResults(questions);
-
             resultsForm.ShowDialog();
         }
 
@@ -121,6 +122,8 @@ namespace WordBank.Presentation
 
         private void EndTestEarly_Click(object sender, EventArgs e)
         {
+            _speechSynthesizer.Dispose();
+            
             DisplayTestResults();
         }
 
