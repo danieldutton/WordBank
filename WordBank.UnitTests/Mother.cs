@@ -25,7 +25,7 @@ namespace WordBank.UnitTests
             return xDoc;
         }
 
-        public static List<string> ExpectedWordSequence()
+        public static List<string> ExpectedKeySequence()
         {
             var keyList = new List<string>
             {
@@ -36,6 +36,17 @@ namespace WordBank.UnitTests
             return keyList;
         }
 
+        public static List<string> ExpectedValueSequence()
+        {
+            var valueList = new List<string>
+            {
+                "value1", "value2", "value3", "value4", "value5",
+                "value6", "value7", "value8", "value9", "value10",
+            };
+
+            return valueList;    
+        } 
+
         public static List<int> ExpectedIdSequence()
         {
             var idList = new List<int>
@@ -45,5 +56,24 @@ namespace WordBank.UnitTests
 
             return idList;
         }
+
+        public static Dictionary<string, string> GetDictionaryStub()
+        {
+            var dictionaryStub = new Dictionary<string, string>
+            {
+                {"word1", "value1"},
+                {"word2", "value2"},
+                {"word3", "value3"},
+                {"word4", "value4"},
+                {"word5", "value5"},
+                {"word6", "value6"},
+                {"word7", "value7"},
+                {"word8", "value8"},
+                {"word9", "value9"},
+                {"word10","value10"},
+            };
+
+            return dictionaryStub;
+        } 
     }
 }

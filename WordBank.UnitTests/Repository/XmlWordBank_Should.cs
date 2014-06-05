@@ -70,7 +70,7 @@ namespace WordBank.UnitTests.Repository
             _sut.InitialiseWordBank(It.IsAny<string>());
             List<string> keyList = _sut.WordMap.Select(x => x.Key).ToList();
 
-            Assert.AreEqual(Mother.ExpectedWordSequence(), keyList);
+            Assert.AreEqual(Mother.ExpectedKeySequence(), keyList);
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace WordBank.UnitTests.Repository
         }
 
         [Test]
-        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectWordSequence()
+        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectKeySequence()
         {
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);
@@ -119,11 +119,11 @@ namespace WordBank.UnitTests.Repository
             _sut.InitialiseWordBank(It.IsAny<string>());
             List<string> wordList = _sut.WordQueue.Select(x => x.Word).ToList();
 
-            Assert.AreEqual(Mother.ExpectedWordSequence(), wordList);
+            Assert.AreEqual(Mother.ExpectedKeySequence(), wordList);
         }
 
         [Test]
-        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectAnswerSequence()
+        public void InitialiseWordBank_InitPropertyWordQueue_WithCorrectValueSequence()
         {
             _fakeXDocParser.Setup(x => x.ParseXDocument(It.IsAny<string>()))
                 .Returns(_xDocument);

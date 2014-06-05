@@ -73,9 +73,11 @@ namespace WordBank.Presentation
         //dry principle violated
         private void ResetQuestionCountLabel()
         {
+            const int startCount = 1;
+
             if (_currentWord != null)
                 _lblQuestionCount.Text = string.Format("{0} of {1}",
-                    1, _wordBank.WordMap.Count);
+                    startCount, _wordBank.WordMap.Count);
         }
 
         private void OnWordBankEmpty(object sender, WordBankEmptyEventArgs e)

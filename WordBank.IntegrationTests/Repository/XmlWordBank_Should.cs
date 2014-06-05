@@ -23,7 +23,6 @@ namespace WordBank.IntegrationTests.Repository
             _sut = new XmlWordBank(_xDocumentParser);
         }
 
-
         [Test]
         public void InitialiseWordBank_InitPropertyWordMap_With10Items()
         {
@@ -39,7 +38,7 @@ namespace WordBank.IntegrationTests.Repository
             _sut.InitialiseWordBank(_xmlString);
             List<string> keyList = _sut.WordMap.Select(x => x.Key).ToList();
 
-            Assert.AreEqual(Mother.ExpectedWordSequence(), keyList);
+            Assert.AreEqual(Mother.ExpectedKeySequence(), keyList);
         }
 
         [Test]
@@ -76,7 +75,7 @@ namespace WordBank.IntegrationTests.Repository
             _sut.InitialiseWordBank(_xmlString);
             List<string> wordList = _sut.WordQueue.Select(x => x.Word).ToList();
 
-            Assert.AreEqual(Mother.ExpectedWordSequence(), wordList);
+            Assert.AreEqual(Mother.ExpectedKeySequence(), wordList);
         }
 
         [Test]

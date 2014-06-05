@@ -134,9 +134,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(418, 547);
-            this.MinimumSize = new System.Drawing.Size(399, 547);
+            this.MinimumSize = new System.Drawing.Size(418, 547);
             this.Name = "TestResults";
-            this.Text = "Test TestResults";
+            this.Text = "Results";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this._panelStats.ResumeLayout(false);
             this._panelStats.PerformLayout();

@@ -26,7 +26,7 @@ namespace WordBank.Presentation
 
         private void DisplayTestResults()
         {
-            foreach (var question in _questions)
+            foreach (Question question in _questions)
             {
                 DisplayTestWordAndAnswer(question);
 

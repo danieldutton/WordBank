@@ -62,6 +62,7 @@
   <ItemGroup>
     <Content Include="TestSamples\words_A.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="TestSamples\words_B.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

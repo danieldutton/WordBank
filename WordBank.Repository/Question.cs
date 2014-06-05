@@ -15,7 +15,7 @@ namespace WordBank.Repository
             get
             {
                 return Word.Equals(Answer,
-                StringComparison.InvariantCultureIgnoreCase);
+                    StringComparison.InvariantCultureIgnoreCase);
             }
         }
 

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mother.cs" />
+    <Compile Include="Presentation\WordMapExtensions_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -63,6 +64,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WordBank.Presentation\WordBank.Presentation.csproj">
+      <Project>{A95B6B70-6AD1-41D2-B853-BA05C6173A64}</Project>
+      <Name>WordBank.Presentation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WordBank.Repository\WordBank.Repository.csproj">
       <Project>{65B97906-15C4-4E55-B023-6940F56285AA}</Project>
       <Name>WordBank.Repository</Name>

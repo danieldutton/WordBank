@@ -8,7 +8,7 @@ using WordBank.Utility.Interfaces;
 
 namespace WordBank.Presentation
 {
-    static class _Program
+    static class Program
     {
         [STAThread]
         static void Main()
