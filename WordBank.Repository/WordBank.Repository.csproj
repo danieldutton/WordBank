@@ -59,7 +59,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\TestSamples\wordsDefault.xml" />
     <None Include="TestSamples\words_A.xml">
       <SubType>Designer</SubType>
     </None>

@@ -1,6 +1,6 @@
 ﻿namespace WordBank.Presentation
 {
-    partial class TestResults
+    partial class Results
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestResults));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Results));
             this._panelResults = new System.Windows.Forms.Panel();
             this._panelStats = new System.Windows.Forms.Panel();
             this._lblResults = new System.Windows.Forms.Label();
@@ -120,7 +120,7 @@
             this._lblScore.TabIndex = 4;
             this._lblScore.Text = "----";
             // 
-            // TestResults
+            // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +135,7 @@
             this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(418, 547);
             this.MinimumSize = new System.Drawing.Size(418, 547);
-            this.Name = "TestResults";
+            this.Name = "Results";
             this.Text = "Results";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this._panelStats.ResumeLayout(false);

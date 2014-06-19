@@ -1,6 +1,6 @@
 ﻿namespace WordBank.Presentation
 {
-    partial class TestConsole
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestConsole));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this._picBoxHeader = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this._btnReplay = new System.Windows.Forms.Button();
@@ -41,18 +41,18 @@
             this._tabPageTest = new System.Windows.Forms.TabPage();
             this._tabPageImport = new System.Windows.Forms.TabPage();
             this._lblImportInstructions = new System.Windows.Forms.Label();
-            this._btnUseDefaults = new System.Windows.Forms.Button();
             this._btnImport = new System.Windows.Forms.Button();
-            this._tabPageCustom = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this._btnCustomise = new System.Windows.Forms.Button();
+            this._tabPageEdit = new System.Windows.Forms.TabPage();
+            this._btnRestoreDefaults = new System.Windows.Forms.Button();
+            this._lblEditInstructions = new System.Windows.Forms.Label();
+            this._btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._picBoxHeader)).BeginInit();
             this.panel1.SuspendLayout();
             this._panelWordCount.SuspendLayout();
             this._tabControl.SuspendLayout();
             this._tabPageTest.SuspendLayout();
             this._tabPageImport.SuspendLayout();
-            this._tabPageCustom.SuspendLayout();
+            this._tabPageEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // _picBoxHeader
@@ -139,7 +139,7 @@
             // 
             this._tabControl.Controls.Add(this._tabPageTest);
             this._tabControl.Controls.Add(this._tabPageImport);
-            this._tabControl.Controls.Add(this._tabPageCustom);
+            this._tabControl.Controls.Add(this._tabPageEdit);
             this._tabControl.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tabControl.Location = new System.Drawing.Point(7, 8);
             this._tabControl.Name = "_tabControl";
@@ -164,14 +164,13 @@
             // _tabPageImport
             // 
             this._tabPageImport.Controls.Add(this._lblImportInstructions);
-            this._tabPageImport.Controls.Add(this._btnUseDefaults);
             this._tabPageImport.Controls.Add(this._btnImport);
             this._tabPageImport.Location = new System.Drawing.Point(4, 25);
             this._tabPageImport.Name = "_tabPageImport";
             this._tabPageImport.Padding = new System.Windows.Forms.Padding(3);
             this._tabPageImport.Size = new System.Drawing.Size(257, 141);
             this._tabPageImport.TabIndex = 1;
-            this._tabPageImport.Text = "Test Files";
+            this._tabPageImport.Text = "Change Test";
             this._tabPageImport.UseVisualStyleBackColor = true;
             // 
             // _lblImportInstructions
@@ -186,16 +185,6 @@
             this._lblImportInstructions.Text = "To start a new test, click \'Load Test\'.  Select one of the sample test files and " +
     "click ok.  The new test will start immediately.";
             // 
-            // _btnUseDefaults
-            // 
-            this._btnUseDefaults.Location = new System.Drawing.Point(6, 115);
-            this._btnUseDefaults.Name = "_btnUseDefaults";
-            this._btnUseDefaults.Size = new System.Drawing.Size(58, 23);
-            this._btnUseDefaults.TabIndex = 1;
-            this._btnUseDefaults.Text = "Defaults";
-            this._btnUseDefaults.UseVisualStyleBackColor = true;
-            this._btnUseDefaults.Click += new System.EventHandler(this.ResetToDefaultWordXmlFile);
-            // 
             // _btnImport
             // 
             this._btnImport.Location = new System.Drawing.Point(176, 115);
@@ -206,40 +195,51 @@
             this._btnImport.UseVisualStyleBackColor = true;
             this._btnImport.Click += new System.EventHandler(this.ImportWordFile_Click);
             // 
-            // _tabPageCustom
+            // _tabPageEdit
             // 
-            this._tabPageCustom.Controls.Add(this.label1);
-            this._tabPageCustom.Controls.Add(this._btnCustomise);
-            this._tabPageCustom.Location = new System.Drawing.Point(4, 25);
-            this._tabPageCustom.Name = "_tabPageCustom";
-            this._tabPageCustom.Size = new System.Drawing.Size(257, 141);
-            this._tabPageCustom.TabIndex = 2;
-            this._tabPageCustom.Text = "Customise";
-            this._tabPageCustom.UseVisualStyleBackColor = true;
+            this._tabPageEdit.Controls.Add(this._btnRestoreDefaults);
+            this._tabPageEdit.Controls.Add(this._lblEditInstructions);
+            this._tabPageEdit.Controls.Add(this._btnEdit);
+            this._tabPageEdit.Location = new System.Drawing.Point(4, 25);
+            this._tabPageEdit.Name = "_tabPageEdit";
+            this._tabPageEdit.Size = new System.Drawing.Size(257, 141);
+            this._tabPageEdit.TabIndex = 2;
+            this._tabPageEdit.Text = "Edit Test";
+            this._tabPageEdit.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // _btnRestoreDefaults
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(6, 7);
-            this.label1.MaximumSize = new System.Drawing.Size(250, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 48);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "To import a new word file, click inport, browse to the xml file and click ok.  Th" +
-    "e new test will begin immediately.";
+            this._btnRestoreDefaults.Location = new System.Drawing.Point(3, 115);
+            this._btnRestoreDefaults.Name = "_btnRestoreDefaults";
+            this._btnRestoreDefaults.Size = new System.Drawing.Size(102, 23);
+            this._btnRestoreDefaults.TabIndex = 6;
+            this._btnRestoreDefaults.Text = "Restore Defaults";
+            this._btnRestoreDefaults.UseVisualStyleBackColor = true;
+            this._btnRestoreDefaults.Click += new System.EventHandler(this.RestoreDefaults_Click);
             // 
-            // _btnCustomise
+            // _lblEditInstructions
             // 
-            this._btnCustomise.Location = new System.Drawing.Point(184, 115);
-            this._btnCustomise.Name = "_btnCustomise";
-            this._btnCustomise.Size = new System.Drawing.Size(70, 23);
-            this._btnCustomise.TabIndex = 4;
-            this._btnCustomise.Text = "Customise";
-            this._btnCustomise.UseVisualStyleBackColor = true;
-            this._btnCustomise.Click += new System.EventHandler(this._btnCustomise_Click);
+            this._lblEditInstructions.AutoSize = true;
+            this._lblEditInstructions.ForeColor = System.Drawing.Color.Maroon;
+            this._lblEditInstructions.Location = new System.Drawing.Point(6, 7);
+            this._lblEditInstructions.MaximumSize = new System.Drawing.Size(250, 50);
+            this._lblEditInstructions.Name = "_lblEditInstructions";
+            this._lblEditInstructions.Size = new System.Drawing.Size(245, 48);
+            this._lblEditInstructions.TabIndex = 5;
+            this._lblEditInstructions.Text = "To edit a test file, click \'Edit\'.  If you wish to reset the application back to " +
+    "it\'s original state then click \'Restore Defaults\'.";
             // 
-            // TestConsole
+            // _btnEdit
+            // 
+            this._btnEdit.Location = new System.Drawing.Point(205, 115);
+            this._btnEdit.Name = "_btnEdit";
+            this._btnEdit.Size = new System.Drawing.Size(49, 23);
+            this._btnEdit.TabIndex = 4;
+            this._btnEdit.Text = "Edit";
+            this._btnEdit.UseVisualStyleBackColor = true;
+            this._btnEdit.Click += new System.EventHandler(this.EditTest_Click);
+            // 
+            // Main
             // 
             this.AcceptButton = this._btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,7 +250,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(293, 227);
             this.MinimumSize = new System.Drawing.Size(293, 227);
-            this.Name = "TestConsole";
+            this.Name = "Main";
             this.Text = "WordBank";
             ((System.ComponentModel.ISupportInitialize)(this._picBoxHeader)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -261,8 +261,8 @@
             this._tabPageTest.ResumeLayout(false);
             this._tabPageImport.ResumeLayout(false);
             this._tabPageImport.PerformLayout();
-            this._tabPageCustom.ResumeLayout(false);
-            this._tabPageCustom.PerformLayout();
+            this._tabPageEdit.ResumeLayout(false);
+            this._tabPageEdit.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -281,10 +281,10 @@
         private System.Windows.Forms.TabPage _tabPageTest;
         private System.Windows.Forms.TabPage _tabPageImport;
         private System.Windows.Forms.Button _btnImport;
-        private System.Windows.Forms.Button _btnUseDefaults;
         private System.Windows.Forms.Label _lblImportInstructions;
-        private System.Windows.Forms.TabPage _tabPageCustom;
-        private System.Windows.Forms.Button _btnCustomise;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabPage _tabPageEdit;
+        private System.Windows.Forms.Button _btnEdit;
+        private System.Windows.Forms.Label _lblEditInstructions;
+        private System.Windows.Forms.Button _btnRestoreDefaults;
     }
 }

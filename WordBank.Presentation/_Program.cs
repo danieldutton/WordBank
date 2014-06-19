@@ -8,7 +8,7 @@ using WordBank.Utility.Interfaces;
 
 namespace WordBank.Presentation
 {
-    internal static class Program
+    internal static class _Program
     {
         [STAThread]
         internal static void Main()
@@ -32,7 +32,7 @@ namespace WordBank.Presentation
                 Rate = -2,
             };
 
-            Application.Run(new TestConsole(wordBank, speechSynthesizer));
+            Application.Run(new Main(wordBank, speechSynthesizer));
         }
 
         private static void GlobalExceptionHandler(object sender, System.EventArgs args)

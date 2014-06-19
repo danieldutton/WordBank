@@ -7,16 +7,16 @@ using WordBank.Repository;
 
 namespace WordBank.Presentation
 {
-    public partial class TestResults : Form
+    public partial class Results : Form
     {
-        private readonly IEnumerable<Question> _questions;  
+        private readonly IEnumerable<Question> _questions;
 
         private int _score;
 
         private int _newLineYPos;
 
 
-        public TestResults(IEnumerable<Question> questions)
+        public Results(IEnumerable<Question> questions)
         {
             _questions = questions;
 
@@ -35,7 +35,7 @@ namespace WordBank.Presentation
                 else
                     MarkAsIncorrect();
 
-                    MoveToNextLine();                
+                MoveToNextLine();
             }
             DisplayFinalScore();
         }
@@ -84,7 +84,7 @@ namespace WordBank.Presentation
 
         private void MoveToNextLine()
         {
-            _newLineYPos += 30;    
+            _newLineYPos += 30;
         }
 
         private void DisplayFinalScore()

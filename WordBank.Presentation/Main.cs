@@ -11,7 +11,7 @@ using WordBank.Repository.Interfaces;
 
 namespace WordBank.Presentation
 {
-    public partial class TestConsole : Form
+    public partial class Main : Form
     {
         [DllImport("winmm.dll", SetLastError = true)]
         public static extern uint waveOutGetNumDevs();
@@ -23,7 +23,7 @@ namespace WordBank.Presentation
         private Question _currentWord;
 
 
-        public TestConsole(IWordBank<Question> wordBank
+        public Main(IWordBank<Question> wordBank
             , SpeechSynthesizer speechSynthesizer)
         {
             _wordBank = wordBank;
@@ -34,7 +34,7 @@ namespace WordBank.Presentation
             PronounceWord();
             FocusToAnswerTextBox();
             UpdateQuestionCountLabel();
-            
+
             _wordBank.IsEmpty += OnWordBankEmpty;
         }
 
@@ -54,7 +54,7 @@ namespace WordBank.Presentation
             if (_currentWord == null)
                 return;
 
-                _speechSynthesizer.SpeakAsync(_currentWord.Word);
+            _speechSynthesizer.SpeakAsync(_currentWord.Word);
         }
 
         private void FocusToAnswerTextBox()
@@ -88,18 +88,18 @@ namespace WordBank.Presentation
         private void DisplayTestResults()
         {
             _speechSynthesizer.Dispose();
-            
+
             List<Question> questions = _wordBank.WordMap.ToQuestionList();
 
-            var resultsForm = new TestResults(questions);
+            var resultsForm = new Results(questions);
             resultsForm.ShowDialog();
         }
 
         private void SubmitAnswer_Click(object sender, EventArgs e)
         {
-            if (_speechSynthesizer.State == SynthesizerState.Speaking) 
+            if (_speechSynthesizer.State == SynthesizerState.Speaking)
                 return;
-            
+
             SubmitAnswer();
             FocusToAnswerTextBox();
             PronounceWord();
@@ -125,21 +125,22 @@ namespace WordBank.Presentation
         private void EndTestEarly_Click(object sender, EventArgs e)
         {
             _speechSynthesizer.Dispose();
-            
+
             DisplayTestResults();
         }
 
         private void ImportWordFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = GetOpenFileDialog();
-            
+
             DialogResult result = fileDialog.ShowDialog();
 
             if (result == DialogResult.OK)
             {
                 string filePath = fileDialog.FileName;
+
                 ImportFile(filePath);
-            }                
+            }
         }
 
         private OpenFileDialog GetOpenFileDialog()
@@ -149,7 +150,7 @@ namespace WordBank.Presentation
                 Multiselect = false,
                 Filter = Properties.Resources.XmlFileFilter,
                 ShowReadOnly = true,
-                InitialDirectory = "TestSamples",
+                InitialDirectory = "/TestSamples",
             };
             return fileDialog;
         }
@@ -174,20 +175,26 @@ namespace WordBank.Presentation
             PronounceWord();
         }
 
-        private void ResetToDefaultWordXmlFile(object sender, EventArgs e)
+        private void EditTest_Click(object sender, EventArgs e)
         {
-            _wordBank.InitialiseWordBank(Repository.Properties.Resources.wordsDefault);
+            var openFileDialog1 = GetOpenFileDialog();
 
-            _tabControl.SelectTab(0);
-
-            ResetQuestionCountLabel();
-            PronounceWord();           
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var custom = new Edit(openFileDialog1.FileName);
+                custom.ShowDialog();
+            }
         }
 
-        private void _btnCustomise_Click(object sender, EventArgs e)
+        private void RestoreDefaults_Click(object sender, EventArgs e)
         {
-            var custom = new Custom();
-            custom.ShowDialog();
+            var dialogResult = MessageBox.Show(Properties.Resources.ResetTestSamplesWarning,
+                "Warning", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                //need a strategy to restore defaults
+            }
         }
     }
 }

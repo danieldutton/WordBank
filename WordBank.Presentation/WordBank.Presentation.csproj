@@ -42,32 +42,32 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Custom.cs">
+    <Compile Include="Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Custom.Designer.cs">
-      <DependentUpon>Custom.cs</DependentUpon>
+    <Compile Include="Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtMethods\WordMapExtensions.cs" />
-    <Compile Include="TestConsole.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestConsole.Designer.cs">
-      <DependentUpon>TestConsole.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestResults.cs">
+    <Compile Include="Results.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TestResults.Designer.cs">
-      <DependentUpon>TestResults.cs</DependentUpon>
+    <Compile Include="Results.Designer.cs">
+      <DependentUpon>Results.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="_Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Custom.resx">
-      <DependentUpon>Custom.cs</DependentUpon>
+    <EmbeddedResource Include="Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestConsole.resx">
-      <DependentUpon>TestConsole.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,8 +79,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TestResults.resx">
-      <DependentUpon>TestResults.cs</DependentUpon>
+    <EmbeddedResource Include="Results.resx">
+      <DependentUpon>Results.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

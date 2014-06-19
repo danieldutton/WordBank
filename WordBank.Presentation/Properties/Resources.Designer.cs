@@ -100,6 +100,15 @@ namespace WordBank.Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Warning?  Any changes/edits you have made will be lost.  Are you sure you wish to proceed?.
+        /// </summary>
+        internal static string ResetTestSamplesWarning {
+            get {
+                return ResourceManager.GetString("ResetTestSamplesWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to XML files (*.xml)|*.xml.
         /// </summary>
         internal static string XmlFileFilter {

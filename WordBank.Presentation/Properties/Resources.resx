@@ -135,4 +135,8 @@
     <value>XML files (*.xml)|*.xml</value>
     <comment>File filter for openFileDialog</comment>
   </data>
+  <data name="ResetTestSamplesWarning" xml:space="preserve">
+    <value>Warning?  Any changes/edits you have made will be lost.  Are you sure you wish to proceed?</value>
+    <comment>Warning message advising the user that any test file changes will be lost if they proceed.</comment>
+  </data>
 </root>
