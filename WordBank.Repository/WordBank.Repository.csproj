@@ -48,10 +48,9 @@
     <Compile Include="XmlWordBank.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestSamples\wordsDefault.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="TestSamples\wordsDefault.xml">
       <SubType>Designer</SubType>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WordBank.Utility\WordBank.Utility.csproj">
@@ -60,90 +59,41 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestSamples\words_A.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <None Include="bin\Debug\TestSamples\wordsDefault.xml" />
+    <None Include="TestSamples\words_A.xml">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="TestSamples\words_B.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_C.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_D.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_E.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_F.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_G.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_H.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_I.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_J.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_K.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_L.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_M.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_N.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_O.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_P.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_Q.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_R.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_S.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_T.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_U.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_V.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_W.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_X.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_Y.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestSamples\words_Z.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
+    <None Include="TestSamples\words_B.xml" />
+    <None Include="TestSamples\words_C.xml" />
+    <None Include="TestSamples\words_D.xml" />
+    <None Include="TestSamples\words_E.xml" />
+    <None Include="TestSamples\words_F.xml" />
+    <None Include="TestSamples\words_G.xml" />
+    <None Include="TestSamples\words_H.xml" />
+    <None Include="TestSamples\words_I.xml" />
+    <None Include="TestSamples\words_J.xml" />
+    <None Include="TestSamples\words_K.xml" />
+    <None Include="TestSamples\words_L.xml" />
+    <None Include="TestSamples\words_M.xml" />
+    <None Include="TestSamples\words_N.xml" />
+    <None Include="TestSamples\words_O.xml" />
+    <None Include="TestSamples\words_P.xml" />
+    <None Include="TestSamples\words_Q.xml" />
+    <None Include="TestSamples\words_R.xml" />
+    <None Include="TestSamples\words_S.xml" />
+    <None Include="TestSamples\words_T.xml" />
+    <None Include="TestSamples\words_U.xml" />
+    <None Include="TestSamples\words_V.xml" />
+    <None Include="TestSamples\words_W.xml" />
+    <None Include="TestSamples\words_X.xml" />
+    <None Include="TestSamples\words_Y.xml" />
+    <None Include="TestSamples\words_Z.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

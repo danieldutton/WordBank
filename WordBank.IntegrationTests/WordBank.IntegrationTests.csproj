@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WordBank.Repository\WordBank.Repository.csproj">
-      <Project>{65B97906-15C4-4E55-B023-6940F56285AA}</Project>
+      <Project>{65b97906-15c4-4e55-b023-6940f56285aa}</Project>
       <Name>WordBank.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\WordBank.Utility\WordBank.Utility.csproj">

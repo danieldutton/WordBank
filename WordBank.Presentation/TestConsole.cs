@@ -183,5 +183,11 @@ namespace WordBank.Presentation
             ResetQuestionCountLabel();
             PronounceWord();           
         }
+
+        private void _btnCustomise_Click(object sender, EventArgs e)
+        {
+            var custom = new Custom();
+            custom.ShowDialog();
+        }
     }
 }

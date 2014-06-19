@@ -16,10 +16,10 @@ namespace WordBank.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.ThreadException += GlobalExceptionHandler;
-            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            //Application.ThreadException += GlobalExceptionHandler;
+            //Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
-            AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
+            //AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
 
             IXDocumentParser xDocParser = new XDocumentParser();
 

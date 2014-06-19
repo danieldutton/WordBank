@@ -43,12 +43,16 @@
             this._lblImportInstructions = new System.Windows.Forms.Label();
             this._btnUseDefaults = new System.Windows.Forms.Button();
             this._btnImport = new System.Windows.Forms.Button();
+            this._tabPageCustom = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this._btnCustomise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._picBoxHeader)).BeginInit();
             this.panel1.SuspendLayout();
             this._panelWordCount.SuspendLayout();
             this._tabControl.SuspendLayout();
             this._tabPageTest.SuspendLayout();
             this._tabPageImport.SuspendLayout();
+            this._tabPageCustom.SuspendLayout();
             this.SuspendLayout();
             // 
             // _picBoxHeader
@@ -135,6 +139,7 @@
             // 
             this._tabControl.Controls.Add(this._tabPageTest);
             this._tabControl.Controls.Add(this._tabPageImport);
+            this._tabControl.Controls.Add(this._tabPageCustom);
             this._tabControl.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._tabControl.Location = new System.Drawing.Point(7, 8);
             this._tabControl.Name = "_tabControl";
@@ -166,7 +171,7 @@
             this._tabPageImport.Padding = new System.Windows.Forms.Padding(3);
             this._tabPageImport.Size = new System.Drawing.Size(257, 141);
             this._tabPageImport.TabIndex = 1;
-            this._tabPageImport.Text = "Import";
+            this._tabPageImport.Text = "Test Files";
             this._tabPageImport.UseVisualStyleBackColor = true;
             // 
             // _lblImportInstructions
@@ -176,18 +181,18 @@
             this._lblImportInstructions.Location = new System.Drawing.Point(6, 7);
             this._lblImportInstructions.MaximumSize = new System.Drawing.Size(250, 50);
             this._lblImportInstructions.Name = "_lblImportInstructions";
-            this._lblImportInstructions.Size = new System.Drawing.Size(244, 48);
+            this._lblImportInstructions.Size = new System.Drawing.Size(235, 48);
             this._lblImportInstructions.TabIndex = 2;
-            this._lblImportInstructions.Text = "To import a new word file, click inport, browse to the xml file and click ok.  Th" +
-    "e new test will begin immediately.";
+            this._lblImportInstructions.Text = "To start a new test, click \'Load Test\'.  Select one of the sample test files and " +
+    "click ok.  The new test will start immediately.";
             // 
             // _btnUseDefaults
             // 
             this._btnUseDefaults.Location = new System.Drawing.Point(6, 115);
             this._btnUseDefaults.Name = "_btnUseDefaults";
-            this._btnUseDefaults.Size = new System.Drawing.Size(90, 23);
+            this._btnUseDefaults.Size = new System.Drawing.Size(58, 23);
             this._btnUseDefaults.TabIndex = 1;
-            this._btnUseDefaults.Text = "Use defaults";
+            this._btnUseDefaults.Text = "Defaults";
             this._btnUseDefaults.UseVisualStyleBackColor = true;
             this._btnUseDefaults.Click += new System.EventHandler(this.ResetToDefaultWordXmlFile);
             // 
@@ -197,9 +202,42 @@
             this._btnImport.Name = "_btnImport";
             this._btnImport.Size = new System.Drawing.Size(75, 23);
             this._btnImport.TabIndex = 0;
-            this._btnImport.Text = "Import";
+            this._btnImport.Text = "Load Test";
             this._btnImport.UseVisualStyleBackColor = true;
             this._btnImport.Click += new System.EventHandler(this.ImportWordFile_Click);
+            // 
+            // _tabPageCustom
+            // 
+            this._tabPageCustom.Controls.Add(this.label1);
+            this._tabPageCustom.Controls.Add(this._btnCustomise);
+            this._tabPageCustom.Location = new System.Drawing.Point(4, 25);
+            this._tabPageCustom.Name = "_tabPageCustom";
+            this._tabPageCustom.Size = new System.Drawing.Size(257, 141);
+            this._tabPageCustom.TabIndex = 2;
+            this._tabPageCustom.Text = "Customise";
+            this._tabPageCustom.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(6, 7);
+            this.label1.MaximumSize = new System.Drawing.Size(250, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 48);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "To import a new word file, click inport, browse to the xml file and click ok.  Th" +
+    "e new test will begin immediately.";
+            // 
+            // _btnCustomise
+            // 
+            this._btnCustomise.Location = new System.Drawing.Point(184, 115);
+            this._btnCustomise.Name = "_btnCustomise";
+            this._btnCustomise.Size = new System.Drawing.Size(70, 23);
+            this._btnCustomise.TabIndex = 4;
+            this._btnCustomise.Text = "Customise";
+            this._btnCustomise.UseVisualStyleBackColor = true;
+            this._btnCustomise.Click += new System.EventHandler(this._btnCustomise_Click);
             // 
             // TestConsole
             // 
@@ -223,6 +261,8 @@
             this._tabPageTest.ResumeLayout(false);
             this._tabPageImport.ResumeLayout(false);
             this._tabPageImport.PerformLayout();
+            this._tabPageCustom.ResumeLayout(false);
+            this._tabPageCustom.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -243,5 +283,8 @@
         private System.Windows.Forms.Button _btnImport;
         private System.Windows.Forms.Button _btnUseDefaults;
         private System.Windows.Forms.Label _lblImportInstructions;
+        private System.Windows.Forms.TabPage _tabPageCustom;
+        private System.Windows.Forms.Button _btnCustomise;
+        private System.Windows.Forms.Label label1;
     }
 }

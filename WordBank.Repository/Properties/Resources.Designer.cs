@@ -63,14 +63,23 @@ namespace WordBank.Repository.Properties {
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;words&gt;
-        ///  &lt;word&gt;embarrass&lt;/word&gt;
-        ///  &lt;word&gt;embarrassment&lt;/word&gt;
-        ///  &lt;word&gt;equipment&lt;/word&gt;
-        ///  &lt;word&gt;exhilarate&lt;/word&gt;
-        ///  &lt;word&gt;exceed&lt;/word&gt;
-        ///  &lt;word&gt;existence&lt;/word&gt;
-        ///  &lt;word&gt;experience&lt;/word&gt;
-        ///&lt;/words&gt;.
+        ///  &lt;word&gt;absence&lt;/word&gt;
+        ///  &lt;word&gt;acceptable&lt;/word&gt;
+        ///  &lt;word&gt;accidently&lt;/word&gt;
+        ///  &lt;word&gt;accommodate&lt;/word&gt;
+        ///  &lt;word&gt;accommodation&lt;/word&gt;
+        ///  &lt;word&gt;accomplishments&lt;/word&gt;
+        ///  &lt;word&gt;accumulate&lt;/word&gt;
+        ///  &lt;word&gt;achieve&lt;/word&gt;
+        ///  &lt;word&gt;achieveable&lt;/word&gt;
+        ///  &lt;word&gt;acknowledge&lt;/word&gt;
+        ///  &lt;word&gt;acknowledgement&lt;/word&gt;
+        ///  &lt;word&gt;acquaintance&lt;/word&gt;
+        ///  &lt;word&gt;acquire&lt;/word&gt;
+        ///  &lt;word&gt;across&lt;/word&gt;
+        ///  &lt;word&gt;address&lt;/word&gt;
+        ///  &lt;word&gt;administratively&lt;/word&gt;
+        ///  &lt;word&gt;aggravate&lt;/wor [rest of string was truncated]&quot;;.
         /// </summary>
         public static string wordsDefault {
             get {
