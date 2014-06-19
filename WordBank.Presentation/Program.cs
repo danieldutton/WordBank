@@ -8,13 +8,18 @@ using WordBank.Utility.Interfaces;
 
 namespace WordBank.Presentation
 {
-    static class Program
+    internal static class Program
     {
         [STAThread]
-        static void Main()
+        internal static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Application.ThreadException += GlobalExceptionHandler;
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
+            AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
 
             IXDocumentParser xDocParser = new XDocumentParser();
 
@@ -28,6 +33,13 @@ namespace WordBank.Presentation
             };
 
             Application.Run(new TestConsole(wordBank, speechSynthesizer));
+        }
+
+        private static void GlobalExceptionHandler(object sender, System.EventArgs args)
+        {
+            MessageBox.Show("There was a problem with the application.  Please restart and try again");
+            
+            Application.Exit();
         }
     }
 }
