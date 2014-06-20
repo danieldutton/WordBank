@@ -45,6 +45,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Question.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="XmlWordBank.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +60,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="TestSamples\words_A.xml">
       <SubType>Designer</SubType>
     </None>

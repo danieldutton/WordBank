@@ -139,4 +139,12 @@
     <value>Warning?  Any changes/edits you have made will be lost.  Are you sure you wish to proceed?</value>
     <comment>Warning message advising the user that any test file changes will be lost if they proceed.</comment>
   </data>
+  <data name="TestLoadFailure" xml:space="preserve">
+    <value>Error loading test.  Please try again or check the file for errors</value>
+    <comment>Error message if test fails to load</comment>
+  </data>
+  <data name="GlobalExceptionMsg" xml:space="preserve">
+    <value>There was a problem with the application.  Please restart and try again.</value>
+    <comment>Message displayed by the global exception handler</comment>
+  </data>
 </root>

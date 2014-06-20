@@ -129,7 +129,7 @@ namespace WordBank.Presentation
             DisplayTestResults();
         }
 
-        private void ImportWordFile_Click(object sender, EventArgs e)
+        private void LoadNewTest_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = GetOpenFileDialog();
 
@@ -139,7 +139,7 @@ namespace WordBank.Presentation
             {
                 string filePath = fileDialog.FileName;
 
-                ImportFile(filePath);
+                LoadTestFile(filePath);
             }
         }
 
@@ -155,7 +155,7 @@ namespace WordBank.Presentation
             return fileDialog;
         }
 
-        private void ImportFile(string xml)
+        private void LoadTestFile(string xml)
         {
             try
             {
@@ -165,7 +165,7 @@ namespace WordBank.Presentation
             }
             catch (Exception)
             {
-                MessageBox.Show("Corrupt word file.  Please try again");
+                MessageBox.Show(Properties.Resources.TestLoadFailure);
                 return;
             }
 
@@ -177,31 +177,13 @@ namespace WordBank.Presentation
 
         private void EditTest_Click(object sender, EventArgs e)
         {
-            var openFileDialog1 = GetOpenFileDialog();
+            OpenFileDialog openFileDialog1 = GetOpenFileDialog();
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var custom = new Edit(openFileDialog1.FileName);
                 custom.ShowDialog();
             }
-        }
-
-        private void RestoreDefaults_Click(object sender, EventArgs e)
-        {
-            var dialogResult = MessageBox.Show(Properties.Resources.ResetTestSamplesWarning,
-                "Warning", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
-            {
-                //need a strategy to restore defaults
-            }
-        }
-
-        private void CreateNewTestFile_Click(object sender, EventArgs e)
-        {
-            //create a skeleton XDocument
-
-            //
         }
     }
 }

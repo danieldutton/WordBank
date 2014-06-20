@@ -16,10 +16,10 @@ namespace WordBank.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.ThreadException += GlobalExceptionHandler;
-            //Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += GlobalExceptionHandler;
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
-            //AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
+            AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
 
             IXDocumentParser xDocParser = new XDocumentParser();
 
@@ -35,9 +35,9 @@ namespace WordBank.Presentation
             Application.Run(new Main(wordBank, speechSynthesizer));
         }
 
-        private static void GlobalExceptionHandler(object sender, System.EventArgs args)
+        private static void GlobalExceptionHandler(object sender, EventArgs args)
         {
-            MessageBox.Show("There was a problem with the application.  Please restart and try again");
+            MessageBox.Show(Properties.Resources.GlobalExceptionMsg);
             
             Application.Exit();
         }

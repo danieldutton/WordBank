@@ -43,7 +43,6 @@
             this._lblImportInstructions = new System.Windows.Forms.Label();
             this._btnImport = new System.Windows.Forms.Button();
             this._tabPageEdit = new System.Windows.Forms.TabPage();
-            this._btnRestoreDefaults = new System.Windows.Forms.Button();
             this._lblEditInstructions = new System.Windows.Forms.Label();
             this._btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._picBoxHeader)).BeginInit();
@@ -193,11 +192,10 @@
             this._btnImport.TabIndex = 0;
             this._btnImport.Text = "Load Test";
             this._btnImport.UseVisualStyleBackColor = true;
-            this._btnImport.Click += new System.EventHandler(this.ImportWordFile_Click);
+            this._btnImport.Click += new System.EventHandler(this.LoadNewTest_Click);
             // 
             // _tabPageEdit
             // 
-            this._tabPageEdit.Controls.Add(this._btnRestoreDefaults);
             this._tabPageEdit.Controls.Add(this._lblEditInstructions);
             this._tabPageEdit.Controls.Add(this._btnEdit);
             this._tabPageEdit.Location = new System.Drawing.Point(4, 25);
@@ -206,16 +204,6 @@
             this._tabPageEdit.TabIndex = 2;
             this._tabPageEdit.Text = "Edit Test";
             this._tabPageEdit.UseVisualStyleBackColor = true;
-            // 
-            // _btnRestoreDefaults
-            // 
-            this._btnRestoreDefaults.Location = new System.Drawing.Point(3, 115);
-            this._btnRestoreDefaults.Name = "_btnRestoreDefaults";
-            this._btnRestoreDefaults.Size = new System.Drawing.Size(80, 23);
-            this._btnRestoreDefaults.TabIndex = 6;
-            this._btnRestoreDefaults.Text = "Use Defaults";
-            this._btnRestoreDefaults.UseVisualStyleBackColor = true;
-            this._btnRestoreDefaults.Click += new System.EventHandler(this.RestoreDefaults_Click);
             // 
             // _lblEditInstructions
             // 
@@ -285,6 +273,5 @@
         private System.Windows.Forms.TabPage _tabPageEdit;
         private System.Windows.Forms.Button _btnEdit;
         private System.Windows.Forms.Label _lblEditInstructions;
-        private System.Windows.Forms.Button _btnRestoreDefaults;
     }
 }

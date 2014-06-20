@@ -1,8 +1,6 @@
 ﻿using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace WordBank.Presentation
 {
@@ -59,18 +57,15 @@ namespace WordBank.Presentation
         {
             string xmlToSave = _richTextBoxXml.Text;
 
-            //sort alphabetically.  Extract to a separate class and inject
-            XDocument xDoc = XDocument.Parse(xmlToSave);
-
-            var result = xDoc.Descendants("words").OrderBy(x => x.Name);
-
-            string str = result.ToString(); //extract and unit test
-
-            File.WriteAllText(_selectedFileName, xmlToSave);
-            Dispose();
-            
-        }
-
-        
+            try
+            {
+                File.WriteAllText(_selectedFileName, xmlToSave);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("There was a problem saving the file.  Please try again");
+            }
+            Dispose();            
+        }        
     }
 }

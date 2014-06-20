@@ -61,6 +61,15 @@ namespace WordBank.Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was a problem with the application.  Please restart and try again..
+        /// </summary>
+        internal static string GlobalExceptionMsg {
+            get {
+                return ResourceManager.GetString("GlobalExceptionMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap greentick {
@@ -105,6 +114,15 @@ namespace WordBank.Presentation.Properties {
         internal static string ResetTestSamplesWarning {
             get {
                 return ResourceManager.GetString("ResetTestSamplesWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error loading test.  Please try again or check the file for errors.
+        /// </summary>
+        internal static string TestLoadFailure {
+            get {
+                return ResourceManager.GetString("TestLoadFailure", resourceCulture);
             }
         }
         
