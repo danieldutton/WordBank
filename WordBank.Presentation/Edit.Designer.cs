@@ -32,7 +32,7 @@
             this._richTextBoxXml = new System.Windows.Forms.RichTextBox();
             this._btnCancel = new System.Windows.Forms.Button();
             this._btnSave = new System.Windows.Forms.Button();
-            this._btnReset = new System.Windows.Forms.Button();
+            this._btnUndo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _richTextBoxXml
@@ -45,40 +45,40 @@
             // 
             // _btnCancel
             // 
-            this._btnCancel.Location = new System.Drawing.Point(215, 256);
+            this._btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("_btnCancel.Image")));
+            this._btnCancel.Location = new System.Drawing.Point(235, 256);
             this._btnCancel.Name = "_btnCancel";
-            this._btnCancel.Size = new System.Drawing.Size(57, 23);
+            this._btnCancel.Size = new System.Drawing.Size(37, 23);
             this._btnCancel.TabIndex = 1;
-            this._btnCancel.Text = "Cancel";
             this._btnCancel.UseVisualStyleBackColor = true;
             this._btnCancel.Click += new System.EventHandler(this.CancelEdit_Click);
             // 
             // _btnSave
             // 
+            this._btnSave.Image = ((System.Drawing.Image)(resources.GetObject("_btnSave.Image")));
             this._btnSave.Location = new System.Drawing.Point(12, 256);
             this._btnSave.Name = "_btnSave";
-            this._btnSave.Size = new System.Drawing.Size(57, 23);
+            this._btnSave.Size = new System.Drawing.Size(37, 23);
             this._btnSave.TabIndex = 2;
-            this._btnSave.Text = "Save";
             this._btnSave.UseVisualStyleBackColor = true;
-            this._btnSave.Click += new System.EventHandler(this.SaveEdits_Click);
+            this._btnSave.Click += new System.EventHandler(this.SaveEdit_Click);
             // 
-            // _btnReset
+            // _btnUndo
             // 
-            this._btnReset.Location = new System.Drawing.Point(152, 256);
-            this._btnReset.Name = "_btnReset";
-            this._btnReset.Size = new System.Drawing.Size(57, 23);
-            this._btnReset.TabIndex = 3;
-            this._btnReset.Text = "Reset";
-            this._btnReset.UseVisualStyleBackColor = true;
-            this._btnReset.Click += new System.EventHandler(this.Undo_Edits_Click);
+            this._btnUndo.Image = ((System.Drawing.Image)(resources.GetObject("_btnUndo.Image")));
+            this._btnUndo.Location = new System.Drawing.Point(192, 256);
+            this._btnUndo.Name = "_btnUndo";
+            this._btnUndo.Size = new System.Drawing.Size(37, 23);
+            this._btnUndo.TabIndex = 3;
+            this._btnUndo.UseVisualStyleBackColor = true;
+            this._btnUndo.Click += new System.EventHandler(this.Undo_Edit_Click);
             // 
             // Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 285);
-            this.Controls.Add(this._btnReset);
+            this.Controls.Add(this._btnUndo);
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._richTextBoxXml);
@@ -86,7 +86,7 @@
             this.MaximumSize = new System.Drawing.Size(300, 323);
             this.MinimumSize = new System.Drawing.Size(300, 323);
             this.Name = "Edit";
-            this.Text = "Edit";
+            this.Text = "Edit Test";
             this.ResumeLayout(false);
 
         }
@@ -96,6 +96,6 @@
         private System.Windows.Forms.RichTextBox _richTextBoxXml;
         private System.Windows.Forms.Button _btnCancel;
         private System.Windows.Forms.Button _btnSave;
-        private System.Windows.Forms.Button _btnReset;
+        private System.Windows.Forms.Button _btnUndo;
     }
 }

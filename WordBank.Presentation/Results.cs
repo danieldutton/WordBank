@@ -9,6 +9,7 @@ namespace WordBank.Presentation
 {
     public partial class Results : Form
     {
+        //question might need naming better.  why would a user expect an answer in there
         private readonly IEnumerable<Question> _questions;
 
         private int _score;
@@ -31,11 +32,11 @@ namespace WordBank.Presentation
                 DisplayTestWordAndAnswer(question);
 
                 if (question.IsCorrect)
-                    MarkAsCorrect();
+                    MarkCorrectAndUpdateScore();
                 else
-                    MarkAsIncorrect();
+                    MarkIncorrect();
 
-                MoveToNextLine();
+                MoveToNewLine();
             }
             DisplayFinalScore();
         }
@@ -58,7 +59,7 @@ namespace WordBank.Presentation
             _panelResults.Controls.Add(lblAnswer);
         }
 
-        private void MarkAsCorrect()
+        private void MarkCorrectAndUpdateScore()
         {
             _score++;
 
@@ -71,7 +72,7 @@ namespace WordBank.Presentation
             _panelResults.Controls.Add(label);
         }
 
-        private void MarkAsIncorrect()
+        private void MarkIncorrect()
         {
             var label = new Label
             {
@@ -82,7 +83,7 @@ namespace WordBank.Presentation
             _panelResults.Controls.Add(label);
         }
 
-        private void MoveToNextLine()
+        private void MoveToNewLine()
         {
             _newLineYPos += 30;
         }

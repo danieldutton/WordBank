@@ -211,9 +211,9 @@
             // 
             this._btnRestoreDefaults.Location = new System.Drawing.Point(3, 115);
             this._btnRestoreDefaults.Name = "_btnRestoreDefaults";
-            this._btnRestoreDefaults.Size = new System.Drawing.Size(102, 23);
+            this._btnRestoreDefaults.Size = new System.Drawing.Size(80, 23);
             this._btnRestoreDefaults.TabIndex = 6;
-            this._btnRestoreDefaults.Text = "Restore Defaults";
+            this._btnRestoreDefaults.Text = "Use Defaults";
             this._btnRestoreDefaults.UseVisualStyleBackColor = true;
             this._btnRestoreDefaults.Click += new System.EventHandler(this.RestoreDefaults_Click);
             // 
@@ -231,7 +231,7 @@
             // 
             // _btnEdit
             // 
-            this._btnEdit.Location = new System.Drawing.Point(205, 115);
+            this._btnEdit.Location = new System.Drawing.Point(202, 115);
             this._btnEdit.Name = "_btnEdit";
             this._btnEdit.Size = new System.Drawing.Size(49, 23);
             this._btnEdit.TabIndex = 4;

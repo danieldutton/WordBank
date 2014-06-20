@@ -20,6 +20,7 @@ namespace WordBank.IntegrationTests.Repository
         {
             _xmlString = Properties.Resources.words_testFile;
             _xDocumentParser = new XDocumentParser();
+            
             _sut = new XmlWordBank(_xDocumentParser);
         }
 

@@ -196,5 +196,12 @@ namespace WordBank.Presentation
                 //need a strategy to restore defaults
             }
         }
+
+        private void CreateNewTestFile_Click(object sender, EventArgs e)
+        {
+            //create a skeleton XDocument
+
+            //
+        }
     }
 }
