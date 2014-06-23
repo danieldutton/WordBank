@@ -151,6 +151,7 @@ namespace WordBank.Presentation
                 Filter = Properties.Resources.XmlFileFilter,
                 ShowReadOnly = true,
                 InitialDirectory = "/TestSamples",
+                RestoreDirectory = false
             };
             return fileDialog;
         }

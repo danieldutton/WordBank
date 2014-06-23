@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using WordBank.Repository.EventArg;
@@ -58,7 +59,10 @@ namespace WordBank.Repository
                 .Select((word, i) => new Question
                     (i + 1, word, string.Empty));
             
-            WordQueue = new Queue<Question>(words);    
+            WordQueue = new Queue<Question>(words);
+    
+            if(WordQueue.Count == 0)
+                throw new InvalidDataException();                
         }
 
         public Question GetQuestion()

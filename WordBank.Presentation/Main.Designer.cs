@@ -169,7 +169,7 @@
             this._tabPageImport.Padding = new System.Windows.Forms.Padding(3);
             this._tabPageImport.Size = new System.Drawing.Size(257, 141);
             this._tabPageImport.TabIndex = 1;
-            this._tabPageImport.Text = "Change Test";
+            this._tabPageImport.Text = "Select Test";
             this._tabPageImport.UseVisualStyleBackColor = true;
             // 
             // _lblImportInstructions
@@ -179,10 +179,10 @@
             this._lblImportInstructions.Location = new System.Drawing.Point(6, 7);
             this._lblImportInstructions.MaximumSize = new System.Drawing.Size(250, 50);
             this._lblImportInstructions.Name = "_lblImportInstructions";
-            this._lblImportInstructions.Size = new System.Drawing.Size(235, 48);
+            this._lblImportInstructions.Size = new System.Drawing.Size(247, 48);
             this._lblImportInstructions.TabIndex = 2;
             this._lblImportInstructions.Text = "To start a new test, click \'Load Test\'.  Select one of the sample test files and " +
-    "click ok.  The new test will start immediately.";
+    "click open.  The new test will start immediately.";
             // 
             // _btnImport
             // 
@@ -212,10 +212,10 @@
             this._lblEditInstructions.Location = new System.Drawing.Point(6, 7);
             this._lblEditInstructions.MaximumSize = new System.Drawing.Size(250, 50);
             this._lblEditInstructions.Name = "_lblEditInstructions";
-            this._lblEditInstructions.Size = new System.Drawing.Size(245, 48);
+            this._lblEditInstructions.Size = new System.Drawing.Size(238, 48);
             this._lblEditInstructions.TabIndex = 5;
-            this._lblEditInstructions.Text = "To edit a test file, click \'Edit\'.  If you wish to reset the application back to " +
-    "it\'s original state then click \'Restore Defaults\'.";
+            this._lblEditInstructions.Text = "To edit a test file, click \'Edit\'.   Browse to and select the file you wish to wo" +
+    "rk on and click open.";
             // 
             // _btnEdit
             // 

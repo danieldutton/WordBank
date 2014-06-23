@@ -16,10 +16,10 @@ namespace WordBank.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.ThreadException += GlobalExceptionHandler;
-            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            //Application.ThreadException += GlobalExceptionHandler;
+            //Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
 
-            AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
+            //AppDomain.CurrentDomain.UnhandledException += GlobalExceptionHandler;
 
             IXDocumentParser xDocParser = new XDocumentParser();
 
@@ -29,8 +29,10 @@ namespace WordBank.Presentation
             var speechSynthesizer = new SpeechSynthesizer
             {
                 Volume = 100,
-                Rate = -2,
+                Rate = -3,
             };
+
+            speechSynthesizer.SelectVoiceByHints(VoiceGender.Male);
 
             Application.Run(new Main(wordBank, speechSynthesizer));
         }

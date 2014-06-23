@@ -61,6 +61,15 @@ namespace WordBank.Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was a problem saving the file.  Please try again.
+        /// </summary>
+        internal static string EditSaveFailWarning {
+            get {
+                return ResourceManager.GetString("EditSaveFailWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There was a problem with the application.  Please restart and try again..
         /// </summary>
         internal static string GlobalExceptionMsg {

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using WordBank.Presentation.Properties;
 
 namespace WordBank.Presentation
 {
@@ -39,7 +40,7 @@ namespace WordBank.Presentation
                 _richTextBoxXml.Text = sReader.ReadToEnd();
 
                 _originalText = _richTextBoxXml.Text;
-            };   
+            }   
         }
 
         private void Undo_Edit_Click(object sender, System.EventArgs e)
@@ -63,7 +64,7 @@ namespace WordBank.Presentation
             }
             catch (IOException)
             {
-                MessageBox.Show("There was a problem saving the file.  Please try again");
+                MessageBox.Show(Resources.EditSaveFailWarning);
             }
             Dispose();            
         }        
