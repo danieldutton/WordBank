@@ -40,11 +40,11 @@
             this._tabControl = new System.Windows.Forms.TabControl();
             this._tabPageTest = new System.Windows.Forms.TabPage();
             this._tabPageImport = new System.Windows.Forms.TabPage();
-            this._lblImportInstructions = new System.Windows.Forms.Label();
             this._btnImport = new System.Windows.Forms.Button();
             this._tabPageEdit = new System.Windows.Forms.TabPage();
             this._lblEditInstructions = new System.Windows.Forms.Label();
             this._btnEdit = new System.Windows.Forms.Button();
+            this._lblImportInstructions = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._picBoxHeader)).BeginInit();
             this.panel1.SuspendLayout();
             this._panelWordCount.SuspendLayout();
@@ -172,18 +172,6 @@
             this._tabPageImport.Text = "Select Test";
             this._tabPageImport.UseVisualStyleBackColor = true;
             // 
-            // _lblImportInstructions
-            // 
-            this._lblImportInstructions.AutoSize = true;
-            this._lblImportInstructions.ForeColor = System.Drawing.Color.Maroon;
-            this._lblImportInstructions.Location = new System.Drawing.Point(6, 7);
-            this._lblImportInstructions.MaximumSize = new System.Drawing.Size(250, 50);
-            this._lblImportInstructions.Name = "_lblImportInstructions";
-            this._lblImportInstructions.Size = new System.Drawing.Size(247, 48);
-            this._lblImportInstructions.TabIndex = 2;
-            this._lblImportInstructions.Text = "To start a new test, click \'Load Test\'.  Select one of the sample test files and " +
-    "click open.  The new test will start immediately.";
-            // 
             // _btnImport
             // 
             this._btnImport.Location = new System.Drawing.Point(176, 115);
@@ -227,6 +215,18 @@
             this._btnEdit.UseVisualStyleBackColor = true;
             this._btnEdit.Click += new System.EventHandler(this.EditTest_Click);
             // 
+            // _lblImportInstructions
+            // 
+            this._lblImportInstructions.AutoSize = true;
+            this._lblImportInstructions.ForeColor = System.Drawing.Color.Maroon;
+            this._lblImportInstructions.Location = new System.Drawing.Point(6, 6);
+            this._lblImportInstructions.MaximumSize = new System.Drawing.Size(250, 50);
+            this._lblImportInstructions.Name = "_lblImportInstructions";
+            this._lblImportInstructions.Size = new System.Drawing.Size(235, 48);
+            this._lblImportInstructions.TabIndex = 2;
+            this._lblImportInstructions.Text = "To start a new test, click \'Load Test\'.  Select one of the sample test files and " +
+    "click open.     The new test will start immediately.";
+            // 
             // Main
             // 
             this.AcceptButton = this._btnSubmit;
@@ -269,9 +269,9 @@
         private System.Windows.Forms.TabPage _tabPageTest;
         private System.Windows.Forms.TabPage _tabPageImport;
         private System.Windows.Forms.Button _btnImport;
-        private System.Windows.Forms.Label _lblImportInstructions;
         private System.Windows.Forms.TabPage _tabPageEdit;
         private System.Windows.Forms.Button _btnEdit;
         private System.Windows.Forms.Label _lblEditInstructions;
+        private System.Windows.Forms.Label _lblImportInstructions;
     }
 }
